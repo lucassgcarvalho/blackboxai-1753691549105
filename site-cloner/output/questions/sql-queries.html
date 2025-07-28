@@ -1,0 +1,1823 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="generator" content="Astro v5.7.13"><meta name="commit" content="https://github.com/kamranahmedse/developer-roadmap/commit/c177a42afedd5c35dbe9d85ad180793fca41391d"><title>30 SQL Queries Interview Questions and Answers</title><meta name="description" content="Writing SQL queries on the spot is tough. This guide covers 30 common SQL queries interview questions with examples, code snippets, and explanations."><meta name="keywords" content="sql quiz, sql questions, sql interview questions, sql interview, sql test"><meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0"><meta http-equiv="Content-Language" content="en"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@kamrify"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image" content="https://assets.roadmap.sh/guest/sql-queries-interview-questions-and-answers-q3qua.jpg"><meta property="og:image:alt" content="roadmap.sh"><meta property="og:site_name" content="roadmap.sh"><meta property="og:title" content="30 SQL Queries Interview Questions and Answers"><meta property="og:description" content="Writing SQL queries on the spot is tough. This guide covers 30 common SQL queries interview questions with examples, code snippets, and explanations."><meta property="og:type" content="website"><meta property="og:url" content="https://roadmap.sh/questions/sql-queries"><link rel="canonical" href="https://roadmap.sh/questions/sql-queries"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="roadmap.sh"><meta name="application-name" content="roadmap.sh"><meta name="ahrefs-site-verification" content="04588b1b3d0118b4f973fa24f9df38ca6300d152cc26529a639e9a34d09c9880"><link rel="apple-touch-icon" sizes="180x180" href="/manifest/apple-touch-icon.png"><meta name="msapplication-TileColor" content="#101010"><meta name="theme-color" content="#848a9a"><link rel="manifest" href="/manifest/manifest.json"><link rel="icon" type="image/png" sizes="32x32" href="/manifest/icon32.png"><link rel="icon" type="image/png" sizes="16x16" href="/manifest/icon16.png"><link rel="shortcut icon" href="/manifest/favicon.ico" type="image/x-icon"><link rel="icon" href="/manifest/favicon.ico" type="image/x-icon"><link rel="preconnect" href="https://www.google-analytics.com/"><link rel="preconnect" href="https://api.roadmap.sh/"><!-- Google Tag Manager Start --><script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-T66KC7S8');
+    </script><!-- Google Tag Manager End --><script type="module" src="/_astro/Analytics.astro_astro_type_script_index_0_lang.DQQHwmTh.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZHDT2S2LF"></script> <script>
+    // @ts-nocheck
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EZHDT2S2LF');
+</script><script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script> <script async>
+  const ignoredPages = [
+    'login',
+    'signup',
+    'best-practices',
+    'guides',
+    'videos',
+    'roadmaps',
+    'community',
+    'start-here',
+    'ai-roadmaps',
+    'ai',
+    'teams',
+    'about',
+    'account',
+    'projects',
+    'questions',
+    'guides',
+    'advertise',
+  ];
+
+  function sanitizeSettingValue(value) {
+    return (
+      String(value)
+        .trim()
+        // Remove characters forbidden at https://support.google.com/admanager/answer/10020177.
+        .replace(/'|\\|'|=|!|#|\*|~|;|\^|\(|\)|<|>|\[|\]|,|&/g, '')
+        // Extra spaces aren't forbidden, but rarely desired.
+        .replace(/\s+/, ' ')
+        // The + sign is also forbidden, but is being replaced with 'and' instead.
+        .replace('+', 'and')
+        // Maximum length of 40 for values.
+        .substring(0, 40)
+    );
+  }
+
+  const page = window.location.pathname;
+  const pageParts = page.split('/').filter(Boolean);
+
+  const isRoadmapPage =
+    pageParts.length === 1 && !ignoredPages.includes(pageParts[0]);
+  const isBestPracticesPage =
+    pageParts.length === 2 && pageParts[0] === 'best-practices';
+
+  let adSettings = {};
+  if (isRoadmapPage) {
+    adSettings = {
+      post_id: sanitizeSettingValue(pageParts[0]),
+      page_type: 'roadmap',
+      category: ['roadmap', sanitizeSettingValue(pageParts[0])],
+    };
+  } else if (isBestPracticesPage) {
+    adSettings = {
+      post_id: sanitizeSettingValue(pageParts[1]),
+      page_type: 'best-practice',
+      category: ['best-practice', sanitizeSettingValue(pageParts[1])],
+    };
+  }
+
+  // @ts-nocheck
+  window.googletag = window.googletag || { cmd: [] };
+  googletag.cmd.push(function () {
+    // Always use non-personalized ads
+    googletag.pubads().setPrivacySettings({
+      restrictDataProcessing: true,
+      nonPersonalizedAds: true,
+    });
+
+    // Define ad slot and enable services
+    googletag
+      .defineSlot(
+        '/22873384501/roadmap',
+        ['fluid'],
+        'div-gpt-ad-1742391132948-0',
+      )
+      .addService(googletag.pubads());
+
+    // Set targeting for all ad slots on the page.
+    for (let key in adSettings) {
+      if (adSettings.hasOwnProperty(key)) {
+        googletag.pubads().setTargeting(key, adSettings[key]);
+      }
+    }
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+
+    googletag.pubads().addEventListener('slotRenderEnded', function (e) {
+      if (!e.isEmpty) {
+        return;
+      }
+
+      const slotId = e.slot.getSlotElementId();
+      if (!slotId) {
+        return;
+      }
+
+      // If empty, hide the ad slot after a small delay.
+      setTimeout(() => {
+        const adContainer = document.getElementById(slotId);
+        if (adContainer) {
+          adContainer.style.display = 'none';
+        }
+      }, 1800);
+    });
+  });
+</script><!-- OneTrust Cookies Consent Notice start for roadmap.sh --><script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="01977e0e-9a37-7b4a-aad2-8cf9247d94b6"></script> <script type="text/javascript">
+  function OptanonWrapper() {}
+</script> <!-- OneTrust Cookies Consent Notice end for roadmap.sh --><script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] =
+      c[a] ||
+      function () {
+        (c[a].q = c[a].q || []).push(arguments);
+      };
+    t = l.createElement(r);
+    t.async = 1;
+    t.src = 'https://www.clarity.ms/tag/' + i;
+    y = l.getElementsByTagName(r)[0];
+    y.parentNode.insertBefore(t, y);
+  })(window, document, 'clarity', 'script', 'qcw723i36o');
+</script><script>
+  // @ts-nocheck
+  !(function (w, d) {
+    if (!w.rdt) {
+      var p = (w.rdt = function () {
+        p.sendEvent
+          ? p.sendEvent.apply(p, arguments)
+          : p.callQueue.push(arguments);
+      });
+      p.callQueue = [];
+      var t = d.createElement('script');
+      (t.src = 'https://www.redditstatic.com/ads/pixel.js'), (t.async = !0);
+      var s = d.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    }
+  })(window, document);
+  rdt('init', 'a2_ghq8846qpphp');
+  rdt('track', 'PageVisit');
+</script><script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/46095657.js?businessUnitId=2306992"></script><script async defer src="https://b174.roadmap.sh/script.js"></script><link rel="stylesheet" href="/_astro/billing.fKZagVbn.css">
+<style>code[class*=language-],pre[class*=language-]{color:#c5c8c6;text-shadow:0 1px rgba(0,0,0,.3);font-family:Inconsolata,Monaco,Consolas,Courier New,Courier,monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#1d1f21}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:#7c7c7c}.token.punctuation{color:#c5c8c6}.namespace{opacity:.7}.token.property,.token.keyword,.token.tag{color:#96cbfe}.token.class-name{color:#ffffb6;text-decoration:underline}.token.boolean,.token.constant{color:#9c9}.token.symbol,.token.deleted{color:#f92672}.token.number{color:#ff73fd}.token.selector,.token.attr-name,.token.string,.token.char,.token.builtin,.token.inserted{color:#a8ff60}.token.variable{color:#c6c5fe}.token.operator{color:#ededed}.token.entity{color:#ffffb6;cursor:help}.token.url{color:#96cbfe}.language-css .token.string,.style .token.string{color:#87c38a}.token.atrule,.token.attr-value{color:#f9ee98}.token.function{color:#dad085}.token.regex{color:#e9c062}.token.important{color:#fd971f}.token.important,.token.bold{font-weight:700}.token.italic{font-style:italic}
+</style></head> <body class="flex min-h-screen flex-col"> <!-- Google Tag Manager (noscript) --> <noscript> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T66KC7S8" height="0" width="0" style="display:none;visibility:hidden"></iframe> </noscript> <!-- End Google Tag Manager (noscript) -->  <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z1jozIT" prefix="r13" component-url="/_astro/CourseAnnouncement.qBgyRVN_.js" component-export="CourseAnnouncement" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;CourseAnnouncement&quot;,&quot;value&quot;:true}" await-children><div class="sticky top-0 z-91 overflow-hidden transition-[height] duration-300 h-0"><a href="/courses/sql" class="flex items-center bg-yellow-400 py-1.5"><span class="container mx-auto flex items-center justify-start gap-2 text-center sm:justify-center sm:gap-4"><span class="flex items-center gap-1.5 text-xs font-medium text-black md:text-base"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database hidden h-4 w-4 shrink-0 text-black sm:block" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg><span class="hidden sm:block">Master SQL with our new premium course</span><span class="block sm:hidden">Announcing our SQL course</span></span><span class="items-center gap-1.5 rounded-full bg-black px-2 py-0.5 text-xs font-medium tracking-wide text-white uppercase hover:bg-zinc-800 sm:px-3 sm:py-1"><span class="mr-1.5 hidden sm:inline">Start Learning</span><span class="mr-1.5 inline sm:hidden">Visit</span><span class="">→</span></span></span></a><button type="button" class="absolute top-1/2 right-3.5 -translate-y-1/2 rounded-lg px-1.5 py-1.5 text-gray-500 hover:bg-yellow-500 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><!--astro:end--></astro-island>   <div class="bg-slate-900 py-5 text-white sm:py-8"> <nav class="container flex items-center justify-between"> <div class="flex items-center gap-5"> <a class="flex items-center text-lg font-medium text-white" href="/" aria-label="roadmap.sh"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 283 283" fill="#000" xmlns:v="https://vecta.io/nano"><path fill="#fff" d="M0 39C0 17.46 17.46 0 39 0h205c21.539 0 39 17.46 39 39v205c0 21.539-17.461 39-39 39H39c-21.54 0-39-17.461-39-39V39Z"></path><path d="M121.215 210.72c-1.867.56-4.854 1.12-8.96 1.68-3.92.56-8.027.84-12.32.84-4.107 0-7.84-.28-11.2-.84-3.174-.56-5.88-1.68-8.12-3.36s-4.014-3.92-5.32-6.72c-1.12-2.987-1.68-6.813-1.68-11.48v-84c0-4.293.746-7.933 2.24-10.92 1.68-3.173 4.013-5.973 7-8.4s6.626-4.573 10.92-6.44c4.48-2.053 9.24-3.827 14.28-5.32a106.176 106.176 0 0 1 15.68-3.36 95.412 95.412 0 0 1 16.24-1.4c8.96 0 16.053 1.773 21.28 5.32 5.226 3.36 7.84 8.96 7.84 16.8 0 2.613-.374 5.227-1.12 7.84-.747 2.427-1.68 4.667-2.8 6.72a133.1 133.1 0 0 0-12.04.56c-4.107.373-8.12.933-12.04 1.68s-7.654 1.587-11.2 2.52c-3.36.747-6.254 1.68-8.68 2.8v95.48zm45.172-22.4c0-7.84 2.426-14.373 7.28-19.6s11.48-7.84 19.88-7.84 15.026 2.613 19.88 7.84 7.28 11.76 7.28 19.6-2.427 14.373-7.28 19.6-11.48 7.84-19.88 7.84-15.027-2.613-19.88-7.84-7.28-11.76-7.28-19.6z"></path></svg> </a> <a href="/ai" class="group relative inline text-gray-400 hover:text-white sm:hidden">
+AI Tutor
+</a> <!-- Desktop navigation items --> <div class="hidden gap-5 sm:flex sm:items-center"> <astro-island uid="ZFD5R5" prefix="r17" component-url="/_astro/NavigationDropdown.CPc26ZUw.js" component-export="NavigationDropdown" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;NavigationDropdown&quot;,&quot;value&quot;:true}" await-children><div class="relative flex items-center"><button class="text-gray-400 hover:text-white" aria-label="Open Navigation Dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button><div class="pointer-events-none invisible absolute left-0 top-full z-90 mt-2 w-48 min-w-[320px] -translate-y-1 rounded-lg bg-slate-800 py-2 opacity-0 shadow-xl transition-all duration-100" role="menu"><a href="/courses/sql" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database inline-block h-5 w-5" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">SQL Course<!-- --> <span class="text-[10px] font-bold text-black py-0.5 uppercase tracking-wider bg-yellow-400 rounded-full px-1.5 relative -top-0.5">New</span></span><span class="text-sm">Our premium SQL course</span></span></a><a href="/get-started" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right inline-block h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Get Started<!-- --> </span><span class="text-sm">Pick a path and get started</span></span></a><a href="/projects" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-kanban inline-block h-5 w-5" aria-hidden="true"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path><path d="M8 10v4"></path><path d="M12 10v2"></path><path d="M16 10v6"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Projects<!-- --> </span><span class="text-sm">Skill-up with real-world projects</span></span></a><a href="/guides" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text inline-block h-5 w-5" aria-hidden="true"><path d="M12 7v14"></path><path d="M16 12h2"></path><path d="M16 8h2"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path><path d="M6 12h2"></path><path d="M6 8h2"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Guides<!-- --> </span><span class="text-sm">In-depth articles and tutorials</span></span></a><a href="/teams" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users inline-block h-5 w-5" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Teams<!-- --> </span><span class="text-sm">Collaborate with your team</span></span></a><a href="/advertise" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu inline-block h-5 w-5" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Advertise<!-- --> </span><span class="text-sm">Promote your product or service</span></span></a></div></div><!--astro:end--></astro-island> <astro-island uid="oQbwx" prefix="r18" component-url="/_astro/RoadmapDropdownMenu.B6y-uHsh.js" component-export="RoadmapDropdownMenu" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;RoadmapDropdownMenu&quot;,&quot;value&quot;:true}" await-children><div class="relative flex items-center"><button class="text-gray-400 hover:text-white" aria-label="Open Navigation Dropdown" aria-expanded="false"><span>Roadmaps<!-- --> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down inline-block h-3 w-3" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></button><div class="pointer-events-none invisible absolute top-full left-0 z-90 mt-2 w-48 min-w-[320px] -translate-y-1 rounded-lg bg-slate-800 py-2 opacity-0 shadow-xl transition-all duration-100" role="menu"><a href="/roadmaps" class="group flex items-center gap-3 px-4 py-2.5 transition-colors mx-2 mb-1 rounded-md border border-slate-600 bg-slate-700 pl-2.5 text-gray-200 hover:bg-slate-600" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full transition-colors group-hover:bg-slate-500 group-hover:text-slate-100 bg-slate-500 text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map inline-block h-5 w-5" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg></span><span class="flex flex-col"><span class="font-medium transition-colors group-hover:text-slate-100 text-white">Official Roadmaps<!-- --> </span><span class="text-sm">Made by subject matter experts</span></span></a><a href="/ai?format=roadmap" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles inline-block h-5 w-5" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">AI Roadmaps<!-- --> </span><span class="text-sm">Generate roadmaps with AI</span></span></a><a href="/community" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe inline-block h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Community Roadmaps<!-- --> </span><span class="text-sm">Made by community members</span></span></a></div></div><!--astro:end--></astro-island> <astro-island uid="58d55" prefix="r19" component-url="/_astro/AIDropdownMenu.Cbz8Y6Jn.js" component-export="AIDropdownMenu" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;AIDropdownMenu&quot;,&quot;value&quot;:true}" await-children><div class="relative flex items-center"><button class="text-gray-400 hover:text-white" aria-label="Open Navigation Dropdown" aria-expanded="false"><span class="group relative flex items-center gap-1 hover:text-white">AI Tutor<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down inline-block h-3 w-3" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></button><div class="pointer-events-none invisible absolute top-full left-0 z-90 mt-2 w-48 min-w-[320px] -translate-y-1 rounded-lg bg-slate-800 py-2 opacity-0 shadow-xl transition-all duration-100" role="menu"><a href="/ai" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus inline-block h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Create with AI<!-- --> </span><span class="text-sm">Learn something new with AI</span></span></a><a href="/ai/quiz" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-swords inline-block h-5 w-5" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline><line x1="13" x2="19" y1="19" y2="13"></line><line x1="16" x2="20" y1="16" y2="20"></line><line x1="19" x2="21" y1="21" y2="19"></line><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"></polyline><line x1="5" x2="9" y1="14" y2="18"></line><line x1="7" x2="4" y1="17" y2="20"></line><line x1="3" x2="5" y1="19" y2="21"></line></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Test my Skills<!-- --> </span><span class="text-sm">Test your skills with AI</span></span></a><a href="/ai/chat" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle inline-block h-5 w-5" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Ask AI Tutor<!-- --> </span><span class="text-sm">Career, resume guidance, and more</span></span></a><a href="/ai/roadmap-chat" class="group flex items-center gap-3 px-4 py-2.5 text-gray-400 transition-colors hover:bg-slate-700" role="menuitem"><span class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-slate-600 transition-colors group-hover:bg-slate-500 group-hover:text-slate-100"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map inline-block h-5 w-5" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg></span><span class="flex flex-col"><span class="font-medium text-slate-300 transition-colors group-hover:text-slate-100">Roadmap Chat<!-- --> </span><span class="text-sm">Chat with AI Tutor about a roadmap</span></span></a></div></div><!--astro:end--></astro-island> <a href="/premium" class="group relative hidden items-center gap-1.5 font-medium text-yellow-400 transition-all duration-200 hover:text-yellow-300 xl:flex"> <svg class="w-4 h-4 fill-current" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path         d="M7.41016 2.5C7.05632 2.5 6.75061 2.74731 6.6767 3.09336L4.4267 13.6285C4.37942 13.8499 4.43468 14.0809 4.57707 14.2569C4.71947 14.4329 4.93376 14.5352 5.16016 14.5352H10.6842L10.0637 21.6852C10.0338 22.0302 10.244 22.3509 10.5724 22.4611C10.9008 22.5712 11.2619 22.4422 11.4461 22.1489L19.4749 9.36368C19.6201 9.13255 19.6282 8.84081 19.4962 8.60195C19.3641 8.36309 19.1127 8.21482 18.8398 8.21482L13.1876 8.21482L15.368 3.56863C15.477 3.33632 15.4597 3.0644 15.3221 2.8478C15.1845 2.6312 14.9457 2.5 14.6891 2.5H7.41016Z"
+        fill="currentColor" ></path>
+</svg>
+Upgrade to Pro
+</a> </div> </div> <ul class="hidden h-8 w-[172px] items-center justify-end gap-5 sm:flex"> <li data-guest-required class="hidden"> <a href="/login" class="text-gray-400 hover:text-white">Login</a> </li> <li class="flex items-center gap-2"> <script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event("astro:only"));})();</script><astro-island uid="1CEX7e" component-url="/_astro/AccountStreak.CiA0_8xH.js" component-export="AccountStreak" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="only" opts="{&quot;name&quot;:&quot;AccountStreak&quot;,&quot;value&quot;:&quot;react&quot;}"></astro-island> <astro-island uid="Hrzm1" component-url="/_astro/AccountDropdown.DNiIMVBC.js" component-export="AccountDropdown" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="only" opts="{&quot;name&quot;:&quot;AccountDropdown&quot;,&quot;value&quot;:&quot;react&quot;}"></astro-island> <a data-guest-required class="flex hidden h-8 w-28 cursor-pointer items-center justify-center rounded-full bg-linear-to-r from-blue-500 to-blue-700 px-4 py-2 text-sm font-medium text-white hover:from-blue-500 hover:to-blue-600" href="/signup"> <span>Sign Up</span> </a> </li> </ul> <!-- Mobile Navigation Button --> <button class="block cursor-pointer text-gray-400 hover:text-gray-50 sm:hidden" aria-label="Menu" data-show-mobile-nav> <svg class="h-5 w-5" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+  <path fill="currentColor" d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"></path>
+</svg> </button> <!-- Mobile Navigation Items --> <div class="fixed top-0 right-0 bottom-0 left-0 z-40 flex hidden items-center bg-slate-900" data-mobile-nav> <button data-close-mobile-nav class="absolute top-6 right-6 block cursor-pointer text-gray-400 hover:text-gray-50" aria-label="Close Menu"> <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        clipRule="evenodd"></path>
+</svg> </button> <ul class="flex w-full flex-col items-center gap-2 md:gap-3"> <li> <a href="/roadmaps" class="text-xl hover:text-blue-300 md:text-lg">
+Roadmaps
+</a> </li> <li> <a href="/ai" class="text-xl hover:text-blue-300 md:text-lg">
+AI Tutor
+</a> </li> <li> <a href="/guides" class="text-xl hover:text-blue-300 md:text-lg">
+Guides
+</a> </li> <!-- Links for logged in users --> <li data-auth-required class="hidden"> <a href="/account" class="text-xl hover:text-blue-300 md:text-lg">
+Account
+</a> </li> <li data-auth-required class="hidden"> <button data-logout-button class="text-xl text-red-300 hover:text-red-400 md:text-lg">
+Logout
+</button> </li> <li> <a data-guest-required href="/login" class="hidden text-xl text-white md:text-lg">
+Login
+</a> </li> <li> <a data-guest-required href="/signup" class="hidden text-xl text-green-300 hover:text-green-400 md:text-lg">
+Sign Up
+</a> </li> </ul> </div> </nav> </div> <script type="module" src="/_astro/Navigation.astro_astro_type_script_index_0_lang.DJCjCueH.js"></script>  <article class="lg:grid lg:max-w-full lg:grid-cols-[1fr_minmax(0,700px)_1fr]"> <div class="bg-linear-to-r from-gray-50 py-0 lg:col-start-3 lg:col-end-4 lg:row-start-1"> <astro-island uid="1pq2Av" prefix="r22" component-url="/_astro/RelatedGuides.CllLspc1.js" component-export="RelatedGuides" renderer-url="/_astro/client.DWEMtbU6.js" props="{&quot;relatedTitle&quot;:[0],&quot;relatedGuides&quot;:[0,{}]}" ssr client="load" opts="{&quot;name&quot;:&quot;RelatedGuides&quot;,&quot;value&quot;:true}"></astro-island> <astro-island uid="Z1fN7pa" prefix="r23" component-url="/_astro/TableOfContent.CUTv1PDE.js" component-export="TableOfContent" renderer-url="/_astro/client.DWEMtbU6.js" props="{&quot;toc&quot;:[1,[[0,{&quot;depth&quot;:[0,2],&quot;slug&quot;:[0,&quot;preparing-for-your-sql-queries-interview&quot;],&quot;text&quot;:[0,&quot;Preparing for your SQL queries interview&quot;],&quot;children&quot;:[1,[]]}],[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[]],&quot;slug&quot;:[0,&quot;test-with-flashcards&quot;],&quot;text&quot;:[0,&quot;Test yourself with Flashcards&quot;]}],[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[]],&quot;slug&quot;:[0,&quot;foundational-sql-queries&quot;],&quot;text&quot;:[0,&quot;Foundational SQL Queries&quot;]}],[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[]],&quot;slug&quot;:[0,&quot;aggregation-and-grouping&quot;],&quot;text&quot;:[0,&quot;Aggregation and grouping&quot;]}],[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[]],&quot;slug&quot;:[0,&quot;subqueries-and-nested-logic&quot;],&quot;text&quot;:[0,&quot;Subqueries and nested logic&quot;]}],[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[]],&quot;slug&quot;:[0,&quot;window-functions-and-advanced-queries&quot;],&quot;text&quot;:[0,&quot;Window functions and advanced queries&quot;]}],[0,{&quot;depth&quot;:[0,2],&quot;children&quot;:[1,[]],&quot;slug&quot;:[0,&quot;optimization-and-pitfalls&quot;],&quot;text&quot;:[0,&quot;Optimization and pitfalls&quot;]}]]],&quot;slug&quot;:[0,&quot;questions-list&quot;],&quot;text&quot;:[0,&quot;Questions List&quot;]}]]]}" ssr client="load" opts="{&quot;name&quot;:&quot;TableOfContent&quot;,&quot;value&quot;:true}" await-children><div class="relative min-w-[250px] px-5 pt-0 max-lg:min-w-full max-lg:max-w-full max-lg:border-none max-lg:px-0 lg:pt-5 top-0 lg:sticky!"><h4 class="text-lg font-medium max-lg:hidden">In this article</h4><button class="flex w-full items-center justify-between gap-2 bg-gray-300 px-3 py-2 text-sm font-medium lg:hidden">Table of Contents<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down transform transition-transform" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><ol class="mt-0.5 space-y-0 max-lg:absolute max-lg:top-full max-lg:mt-0 max-lg:w-full max-lg:bg-white max-lg:shadow-sm hidden lg:block"><li><a href="#preparing-for-your-sql-queries-interview" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1">Preparing for your SQL queries interview</a></li><li><a href="#test-with-flashcards" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1">Test yourself with Flashcards</a></li><li><a href="#questions-list" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1">Questions List</a><ol class="my-0 ml-4 mt-1 space-y-0 max-lg:ml-0 max-lg:mt-0 max-lg:list-none"><li><a href="#foundational-sql-queries" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1 max-lg:pl-8">Foundational SQL Queries</a></li><li><a href="#aggregation-and-grouping" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1 max-lg:pl-8">Aggregation and grouping</a></li><li><a href="#subqueries-and-nested-logic" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1 max-lg:pl-8">Subqueries and nested logic</a></li><li><a href="#window-functions-and-advanced-queries" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1 max-lg:pl-8">Window functions and advanced queries</a></li><li><a href="#optimization-and-pitfalls" class="text-sm text-gray-500 no-underline hover:text-black max-lg:block max-lg:border-b max-lg:px-3 max-lg:py-1 max-lg:pl-8">Optimization and pitfalls</a></li></ol></li></ol></div><!--astro:end--></astro-island> </div> <div class="col-start-2 col-end-3 row-start-1 mx-auto max-w-[700px] py-5 sm:py-10 lg:border-r"> <div class="container prose prose-xl prose-h2:mb-3 prose-h2:mt-10 prose-h2:scroll-mt-5 prose-h2:text-balance prose-h2:text-3xl prose-h3:mt-2 prose-h4:text-2xl prose-h3:scroll-mt-5 prose-h3:text-balance prose-h4:text-balance prose-h5:text-balance prose-h5:font-medium prose-blockquote:font-normal prose-code:bg-transparent prose-img:mt-1 sm:prose-h2:scroll-mt-10 sm:prose-h3:scroll-mt-10">  <h1 class="mb-3 text-4xl font-bold text-balance"> 30 SQL Queries Interview Questions and Answers </h1> <p class="my-0 flex items-center justify-start text-sm text-gray-400"> <a href="/authors/ekene" class="inline-flex items-center font-medium underline-offset-2 hover:text-gray-600 hover:underline"> <img alt="Ekene Eze" src="/authors/ekene-eze.jpg" class="mr-2 mb-0 inline h-5 w-5 rounded-full"> Ekene Eze </a> <span class="mx-2 hidden sm:inline">&middot;</span> <a class="hidden underline-offset-2 hover:text-gray-600 sm:inline" href="https://github.com/kamranahmedse/developer-roadmap/tree/master/src/data/question-groups/sql-queries" target="_blank">
+Improve this Guide
+</a> </p><p><img src="https://assets.roadmap.sh/guest/sql-queries-interview-questions-and-answers-q3qua.jpg" alt="SQL queries interview questions and answers"></p>
+<p>Writing SQL queries during interviews can be tough for beginners and experienced developers. However, with the right preparation and practice, you can ace your next SQL queries interview.</p>
+<p>In this guide, I’ll walk you through both basic and advanced SQL queries like SELECT, JOIN, GROUP BY, and window functions. Each answer will be short and clear and include SQL code examples for you to understand the concepts better. By the end of this guide, you’ll be in a much better position to ace your SQL queries interview and build solid skills you can use beyond it.</p>
+<p>I have included a set of flashcards to help you study and practice more efficiently. If you are just starting out in your career, checkout roadmap.sh’s <a href="https://roadmap.sh/sql" target="_blank">SQL roadmap</a> or take our <a href="https://roadmap.sh/courses/sql" target="_blank">SQL queries course</a> to master this topic in under 60 hours!</p>
+<h2 id="preparing-for-your-sql-queries-interview">Preparing for your SQL queries interview</h2>
+<p>While preparing for your interview, you should remember the following points.</p>
+<ul>
+<li>Review the basics of SQL. You should know what SQL stands for and what it is used for.</li>
+<li>Make sure you have a basic understanding of databases and the different types of databases, such as SQL and NoSQL databases.</li>
+<li>Consider reading about the SQL data types and basic database concepts such as indexing, foreign keys, primary keys, etc.</li>
+<li>Practice writing SQL queries on local databases or online platforms like <a href="https://www.hackerrank.com/domains/sql" rel="noopener noreferrer nofollow" target="_blank">HackerRank</a>.</li>
+<li>Get familiar with at least one relational database management system such as <a href="https://roadmap.sh/postgresql-dba" target="_blank">PostgreSQL</a>, Microsoft SQL Server, MySQL, Oracle DB.</li>
+<li>On a general note, read up on the company you are interviewing with to know more about what they do, and also prepare some questions beforehand to show you are interested in what they do.</li>
+</ul> <h2 id="test-with-flashcards">Test yourself with Flashcards</h2> <p>
+You can either use these flashcards or jump to the questions list
+        section below to see them in a list format.
+</p> <div class="mx-0 sm:-mb-32"> <astro-island uid="ZHfjet" prefix="r24" component-url="/_astro/QuestionsList.BFbCHfQD.js" component-export="QuestionsList" renderer-url="/_astro/client.DWEMtbU6.js" props="{&quot;groupId&quot;:[0,&quot;sql-queries&quot;],&quot;questions&quot;:[1,[[0,{&quot;id&quot;:[0,&quot;what-is-the-difference-between-where-and-having&quot;],&quot;question&quot;:[0,&quot;What is the difference between WHERE and HAVING?&quot;],&quot;answer&quot;:[0,&quot;You use **WHERE** for filtering rows before applying any grouping or aggregation. \nThe code snippet below illustrates the use of **WHERE**. It filters the `Users` table for rows where the `Age` is greater than 18. \n\n```sql\nSELECT * FROM Users\nWHERE Age &gt; 18;\n```\n\nThe result of the query is similar to the table below.\n\n| userId | firstName | lastName | age |\n| ------ | --------- | -------- | --- |\n| 1      | John      | Doe      | 30  |\n| 2      | Jane      | Don      | 31  |\n| 3      | Will      | Liam     | 25  |\n| 4      | Wade      | Great    | 32  |\n| 5      | Peter     | Smith    | 27  |\n\nOn the other hand, you use **HAVING** to filter groups after performing grouping and aggregation. You apply it to the result of aggregate functions, and it is mostly used with the **GROUP BY** clause.\n\n```sql\nSELECT FirstName, Age FROM Users\nGROUP BY FirstName, Age\nHAVING Age &gt; 30;\n```\n\nThe code above selects the `FirstName` and `Age` columns, then groups by the `FirstName` and `Age`, and finally gets entries with age greater than 30. The result of the query looks like this:\n\n| firstName | age |\n| --------- | --- |\n| Wade      | 32  |\n| Jane      | 31  |&quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;how-do-you-find-duplicates-in-a-table&quot;],&quot;question&quot;:[0,&quot;How do you find duplicates in a table?&quot;],&quot;answer&quot;:[0,&quot;To find duplicate records, you must first define the criteria for detecting duplicates. Is it a combination of two or more columns where you want to detect the duplicates, or are you searching for duplicates within a single column?\n\nThe following steps will help you find duplicate data in a table.\n\n- Use the **GROUP BY** clause to group all the rows by the column(s) on which you want to check the duplicate values.\n- Use the **COUNT** function in the **HAVING** command to check if any groups have more than one entry.\n\nLet&#39;s see how to handle single-column duplicates. In a table `Users`, there are three users who are 30 years of age. Let&#39;s use the **GROUP BY** clause and **COUNT** function to find the duplicate values.\n\n```sql\nSELECT Age, COUNT(Age)\nFROM Users\nGROUP BY Age\nHAVING COUNT(Age) &gt; 1\n```\n\nThe result of the query looks like this:\n\n| age | count |\n| --- | ----- |\n| 30  | 3     |\n\nHandling multi-column (composite) duplicates is similar to handling single-column duplicates.\n\n```sql\nSELECT FirstName, LastName, COUNT(*) AS dup_count\nFROM Users\nGROUP BY FirstName, LastName\nHAVING COUNT(*) &gt; 1;\n```\n\nAfter finding duplicates, you might be asked how to delete the duplicates. The query to delete duplicates is shown below using Common Table Expression (CTE) and ROW_NUMBER().\n\n```sql\nWITH ranked AS (\n  SELECT *,\n         ROW_NUMBER() OVER (PARTITION BY Age ORDER BY id) AS rn\n  FROM Users\n)\nDELETE FROM Users\nWHERE id IN (\n  SELECT id\n  FROM ranked\n  WHERE rn &gt; 1\n);\n```\n\nThe query deletes all the duplicates while retaining the first row of data. &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-the-difference-between-inner-join-and-left-join&quot;],&quot;question&quot;:[0,&quot;What is the difference between INNER JOIN and LEFT JOIN?&quot;],&quot;answer&quot;:[0,&quot;A **JOIN** combines data from two or more tables based on a related column between them. It is useful when you need to retrieve data spread across multiple tables in relational database management systems.\n\nAn **INNER JOIN** returns only rows with a match in both tables based on the specified join condition. If there are no matching rows, there will be no results. The SQL syntax for an **INNER JOIN** is shown in the code snippet below.\n\n![Inner join vs. Left join](https://assets.roadmap.sh/guest/inner-join-vs-left-join-tifdp.png)\n\n```sql\nSELECT table1.column_name1, table1.column_name2, table2.column_name1, table2.column_name2 FROM table1\nINNER JOIN table2\nON table1.column_name = table2.column_name\n```\n\nFor example, there are two tables `Users` and `Cities` with the following data:\n\n**Users table**\n\n| userId | firstName | lastName | age | cityId |\n| ------ | --------- | -------- | --- | ------ |\n| 1      | John      | Doe      | 30  | 1      |\n| 2      | Jane      | Don      | 31  | 1      |\n| 3      | Will      | Liam     | 25  | 1      |\n| 4      | Wade      | Great    | 32  | 1      |\n| 5      | Peter     | Smith    | 27  | 2      |\n| 6      | Rich      | Mond     | 30  | 2      |\n| 7      | Rach      | Mane     | 30  | 2      |\n| 8      | Zach      | Ridge    | 30  | 3      |\n\n**Cities table**\n\n| id | name       |\n| -- | ---------- |\n| 1  | London     |\n| 2  | Manchester |\n\nLet&#39;s say you want to retrieve a list of users and their respective city names. You can achieve this using the **INNER JOIN** query.\n\n```sql\nSELECT users.firstName, users.lastName, users.age, cities.name as cityName FROM users\nINNER JOIN cities\nON users.cityId = cities.id\n```\n\n| firstName | lastName | age | cityName   |\n| --------- | -------- | --- | ---------- |\n| John      | Doe      | 30  | London     |\n| Jane      | Don      | 31  | London     |\n| Will      | Liam     | 25  | London     |\n| Wade      | Great    | 32  | London     |\n| Peter     | Smith    | 27  | Manchester |\n| Rich      | Mond     | 30  | Manchester |\n| Rach      | Mane     | 30  | Manchester |\n\n**LEFT JOIN** returns all the rows from the left table (table 1) and the matched rows from the right table (table 2). If no matching rows exist in the right table (table 2), then NULL values are returned. The SQL syntax for a Left join is shown in the code snippet below.\n\n```sql\nSELECT table1.column_name1, table1.column_name2, table2.column_name1, table2.column_name2 FROM table1\nLEFT JOIN table2\nON table1.column_name = table2.column_name \n```\n\nLet&#39;s have a look at a practical example with `Users` and `Cities` tables from before.\n\nWhen you execute the **LEFT JOIN** query, you get the table below.\n\n| firstName | lastName | age | cityName   |\n| --------- | -------- | --- | ---------- |\n| John      | Doe      | 30  | London     |\n| Jane      | Don      | 31  | London     |\n| Will      | Liam     | 25  | London     |\n| Wade      | Great    | 32  | London     |\n| Peter     | Smith    | 27  | Manchester |\n| Rich      | Mond     | 30  | Manchester |\n| Rach      | Mane     | 30  | Manchester |\n| Zach      | Ridge    | 30  | null       | &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;write-a-query-to-find-the-second-highest-salary-from-a-table&quot;],&quot;question&quot;:[0,&quot;Write a query to find the second highest salary from a table&quot;],&quot;answer&quot;:[0,&quot;Given a table `Salaries`,\n\n| id | salary |\n| -- | ------ |\n| 1  | 1000   |\n| 2  | 2000   |\n| 3  | 3000   |\n| 4  | 4000   |\n\nThe query to find the second-highest salary is shown in the code snippet below\n\n```sql\nSELECT DISTINCT Salary\nFROM Salaries\nORDER BY Salary DESC\nLIMIT 1 OFFSET 1\n```\n\nThe result of the query is shown below\n\n|   | salary |\n| - | ------ |\n| 1 | 3000   | &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-the-difference-between-union-and-union-all&quot;],&quot;question&quot;:[0,&quot;What is the difference between UNION and UNION ALL?&quot;],&quot;answer&quot;:[0,&quot;UNION is used for removing duplicates while UNION ALL keeps all duplicates. UNION is slower compared to UNION ALL because of de-duplication. You use UNION when you want to obtain unique records and UNION ALL when you want every row even if they are repeated. &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-are-indexes-and-why-are-they-useful&quot;],&quot;question&quot;:[0,&quot;What are indexes and why are they useful?&quot;],&quot;answer&quot;:[0,&quot;Indexes in databases are like the indexes in books. They increase the speed of data retrieval from a database. When you want to read data from a table, instead of going through all the rows of the table, indexes help to go straight to the row you are looking for. \n\n![Types of Indexes](https://assets.roadmap.sh/guest/types-of-indexes-ntfsk.png)\n\nThey improve **SELECT** queries, improve performance, and make sorting and filtering faster. They also ensure data integrity. There are different types of indexes, which include:\n\n- B-Tree index\n- Composite index\n- Unique index\n- Full text index\n- Bitmap index\n- Clustered index\n- Non-clustered index &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-a-primary-key&quot;],&quot;question&quot;:[0,&quot;What is a primary key?&quot;],&quot;answer&quot;:[0,&quot;A primary key is the unique identifier of a row of data in a table. You use it to identify each row uniquely, and no two rows can have the same primary key. A primary key column cannot be null. In the example below, `user_id` is the primary key.\n\n```sql\nCREATE TABLE users (\n   user_id INT PRIMARY KEY,\n   name VARCHAR(100),\n   phoneNumber VARCHAR(100)\n);\n``` &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-a-foreign-key&quot;],&quot;question&quot;:[0,&quot;What is a foreign key?&quot;],&quot;answer&quot;:[0,&quot;A foreign key is like a bridge between two tables. A foreign key in one table is the primary key in another. It is the connector between the two tables. &quot;],&quot;topics&quot;:[1,[[0,&quot;Foundational SQL Queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;how-does-group-by-work&quot;],&quot;question&quot;:[0,&quot;How does GROUP BY work?&quot;],&quot;answer&quot;:[0,&quot;**GROUP BY** is a standard SQL command that groups rows with the same value in the specified column. You should use with aggregate functions such as **COUNT**, **MIN**, **MAX,** etc.\n\n![GROUP BY](https://assets.roadmap.sh/guest/group-by-wc8aw.png)\n\nThe query below illustrates the **GROUP BY** clause:\n\n```sql\nSELECT columnName FROM Table\nGROUP BY columnName\n``` &quot;],&quot;topics&quot;:[1,[[0,&quot;Aggregation and grouping&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-happens-if-you-select-a-column-not-in-the-group-by-clause&quot;],&quot;question&quot;:[0,&quot;What happens if you SELECT a column not in the GROUP BY clause?&quot;],&quot;answer&quot;:[0,&quot;If you **SELECT** a column not in the **GROUP BY** clause, it will throw an error stating that the column must be in the **GROUP BY** clause or in an aggregate function. Let&#39;s use the table below as an illustration.\n\n| firstName | lastName  | phoneNumber |\n| --------- | --------- | ----------- |\n| John      | Doe       | +23410910   |\n| Jack      | Ray       | +23410911   |\n| Irene     | Rotherdam | +23410911   |\n\nIf you run the query below against the database:\n\n```sql\nSELECT firstName, phoneNumber FROM phoneNumbers\nGROUP BY phoneNumber\n```\n\nThe result will be an error because `firstName` is not in the **GROUP BY** clause and not using an aggregate function. &quot;],&quot;topics&quot;:[1,[[0,&quot;Aggregation and grouping&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;write-a-query-to-count-the-number-of-users-by-country&quot;],&quot;question&quot;:[0,&quot;Write a query to COUNT the number of users by country&quot;],&quot;answer&quot;:[0,&quot;Given a table `Users` that looks like this:\n\n| userId | firstName | lastName | age | country   |\n| ------ | --------- | -------- | --- | --------- |\n| 1      | John      | Doe      | 30  | Portugal  |\n| 2      | Jane      | Don      | 31  | Belgium   |\n| 3      | Will      | Liam     | 25  | Argentina |\n| 4      | Wade      | Great    | 32  | Denmark   |\n| 5      | Peter     | Smith    | 27  | USA       |\n| 6      | Rich      | Mond     | 30  | USA       |\n| 7      | Rach      | Mane     | 30  | Argentina |\n| 8      | Zach      | Ridge    | 30  | Portugal  |\n\nThe query to **COUNT** the number of users by country is:\n\n```sql\nSELECT country, COUNT(country) FROM users\nGROUP BY country\n```\n\nThe query uses the **GROUP BY** clause to group the users by country and then shows the count in the next column. The result of the query looks like this:\n\n| country   | count |\n| --------- | ----- |\n| USA       | 2     |\n| Portugal  | 2     |\n| Argentina | 2     |\n| Belgium   | 1     |\n| Denmark   | 1     | &quot;],&quot;topics&quot;:[1,[[0,&quot;Aggregation and grouping&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-happens-if-you-use-group-by-without-an-aggregate-function&quot;],&quot;question&quot;:[0,&quot;What happens if you use GROUP BY without an aggregate function?&quot;],&quot;answer&quot;:[0,&quot;If you use the **GROUP BY** clause without an aggregate function, it is equivalent to using the **DISTINCT** command. For example, the command below:\n\n```sql\nSELECT phoneNumber FROM phoneNumbers\nGROUP BY phoneNumber\n```\n\nis equivalent to:\n\n```sql\nSELECT DISTINCT phoneNumber FROM phoneNumbers\n``` &quot;],&quot;topics&quot;:[1,[[0,&quot;Aggregation and grouping&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-the-difference-between-count(*)-and-count(column_name)&quot;],&quot;question&quot;:[0,&quot;What is the difference between COUNT(\\*) and COUNT(column_name)?&quot;],&quot;answer&quot;:[0,&quot;The difference is that **COUNT(*)** counts all the rows of data, including NULL values, while **COUNT(column_name)** counts only non-NULL values in the specified column. Let&#39;s illustrate this using a table named `Users`.\n\n| userId | firstName | lastName | age | country  |\n| ------ | --------- | -------- | --- | -------- |\n| 1      | John      | Doe      | 30  | Portugal |\n| 2      | Jane      | Don      | 31  | Belgium  |\n| 3      | Zach      | Ridge    | 30  | Norway   |\n| 4      | null      | Tom      | 25  | Denmark  |\n\nIf you use **COUNT(*)**, the result will be 4 but if you use **COUNT(firstName)**, it will return 3, omitting the null value. &quot;],&quot;topics&quot;:[1,[[0,&quot;Aggregation and grouping&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-the-difference-between-a-subquery-and-a-join&quot;],&quot;question&quot;:[0,&quot;What is the difference between a subquery and a JOIN?&quot;],&quot;answer&quot;:[0,&quot;A subquery is a query that is inside another query. You use it for queries that require complex logic. You should use subqueries when you want to use the result of that subquery for another query. In the example below, the subquery is in brackets.\n\n![Subquery](https://assets.roadmap.sh/guest/sql-subquery-ro4d0.png)\n\n```sql\nSELECT firstName,\n  (SELECT COUNT(*)\n  FROM cities\n  WHERE cities.id = users.city_id) AS cityCount\nFROM users;\n```\n\nOn the other hand, a **JOIN** combines two or more tables based on related columns between them. The related column is usually a foreign key. You should use **JOINS** when you want to pull related data from different tables together. The code below illustrates how to use a **JOIN**.\n\n```sql\nSELECT firstName, COUNT(*) FROM users\nJOIN cities ON users.city_id = cities.id\n```\n\nA JOIN is faster than a subquery in the following scenarios:\n\n- When you are querying data from multiple tables.\n- When you are filtering or joining on index columns. &quot;],&quot;topics&quot;:[1,[[0,&quot;Subqueries and nested logic&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;write-a-query-to-find-employees-earning-more-than-the-average-salary&quot;],&quot;question&quot;:[0,&quot;Write a query to find employees earning more than the average salary&quot;],&quot;answer&quot;:[0,&quot;Given an `Employees` table with columns `id`, `name`, and `salary` that looks like this:\n\n| id | name     | salary |\n| -- | -------- | ------ |\n| 1  | Irene    | 1000   |\n| 2  | Peter    | 1230   |\n| 3  | Raymond  | 1450   |\n| 4  | Henry    | 1790   |\n| 5  | Naomi    | 2350   |\n| 6  | Bridget  | 2000   |\n| 7  | Emily    | 2500   |\n| 8  | Great    | 3000   |\n| 9  | Mercedes | 2750   |\n| 10 | Zoe      | 2900   |\n\nThe query to find employees earning more than the average salary is:\n\n```sql\nSELECT * FROM employees\nWHERE salary &gt; (SELECT AVG(salary) FROM employees);\n```\n\n| id | name     | salary |\n| -- | -------- | ------ |\n| 5  | Naomi    | 2350   |\n| 7  | Emily    | 2500   |\n| 8  | Great    | 3000   |\n| 9  | Mercedes | 2750   |\n| 10 | Zoe      | 2900   | &quot;],&quot;topics&quot;:[1,[[0,&quot;Subqueries and nested logic&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;explain-how-a-correlated-subquery-works&quot;],&quot;question&quot;:[0,&quot;Explain how a correlated subquery works&quot;],&quot;answer&quot;:[0,&quot;A correlated subquery is a subquery that depends on a value from the outer query. This means that the query is evaluated for each row that might be selected in the outer query. Below is an example of a correlated subquery.\n\n```sql\nSELECT name, country_id, salary\nFROM employees em\nWHERE salary &gt; (\n  SELECT AVG(salary) FROM employees\n  country_id = em.country_id);\n```\n\nThe code above:\n\n- Runs the outer query through each row of the table.\n- Takes the `country_id` from the `employees` table.\n- Iterates through the other rows and does the same calculation.\n\nThis leads to a degrading performance as the data in the table grows. \n\nYou should use a correlated subquery if you want to perform row-specific operations or cannot achieve an operation using JOIN or other aggregate functions. &quot;],&quot;topics&quot;:[1,[[0,&quot;Subqueries and nested logic&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;when-should-you-use-exists-instead-of-in-in-a-subquery&quot;],&quot;question&quot;:[0,&quot;When should you use EXISTS instead of IN in a subquery?&quot;],&quot;answer&quot;:[0,&quot;**EXISTS** and **IN** are used in subqueries to filter results, but they perform different functions depending on their usage. \n\nYou should use **EXISTS** in the following situations:\n\n- When you want to check if a row exists and not the actual values.\n- When the subquery is a correlated query.\n- When the subquery returns many rows but you want to get the first match.\n\nYou should use **IN** in the following scenarios:\n\n- When you are comparing a column to a list of values.\n- When the subquery returns a small or static list. &quot;],&quot;topics&quot;:[1,[[0,&quot;Subqueries and nested logic&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;can-you-nest-subqueries-multiple-levels-deep&quot;],&quot;question&quot;:[0,&quot;Can you nest subqueries multiple levels deep?&quot;],&quot;answer&quot;:[0,&quot;Yes, you can nest subqueries multiple levels deep when you want to perform complex logic. A nested subquery is a subquery inside another subquery, forming layers of subqueries. Many SQL engines allow multiple layers of subqueries, but this causes poor readability and degrades performance. &quot;],&quot;topics&quot;:[1,[[0,&quot;Subqueries and nested logic&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-a-window-function&quot;],&quot;question&quot;:[0,&quot;What is a window function?&quot;],&quot;answer&quot;:[0,&quot;A window function is a function that allows you to perform operations on a specific set of rows related to the current row. Unlike aggregate functions that perform calculations on an entire data set, window functions can perform operations on a subset of data. These calculations are valid for aggregates, ranking, and cumulative totals without altering the original dataset. &quot;],&quot;topics&quot;:[1,[[0,&quot;Window functions and advanced queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;write-a-query-to-calculate-a-running-total&quot;],&quot;question&quot;:[0,&quot;Write a query to calculate a running total&quot;],&quot;answer&quot;:[0,&quot;Let&#39;s use a table `Sales` as a reference for this query. It has three columns: `id`, `day` which represents the day of the week, and `amount` which is the amount sold in US Dollars. The table looks like this:\n\n| id | day       | amount |\n| -- | --------- | ------ |\n| 1  | Monday    | 200    |\n| 2  | Tuesday   | 300    |\n| 3  | Wednesday | 600    |\n| 4  | Thursday  | 390    |\n| 5  | Friday    | 900    |\n\nThe query to calculate the running total is:\n\n```sql\nSELECT\n  id,\n  sale_date,\n  amount,\n  SUM(amount) OVER (ORDER BY sale_date) AS running_total\nFROM\n  sales;\n```\n\nThe query uses a Window function **OVER** to sum the amount for each row of data and saving the running total. It gets the total for each day and adds it to the previous totals. The result of the query looks like this:\n\n| id | day       | amount | running_total |\n| -- | --------- | ------ | ------------- |\n| 1  | Monday    | 200    | 200           |\n| 2  | Tuesday   | 300    | 500           |\n| 4  | Thursday  | 390    | 1100          |\n| 3  | Wednesday | 600    | 1490          |\n| 5  | Friday    | 900    | 2390          |\n\nYou can observe from the image that the last column is `running_total,` which takes the amount for the current day and adds it to its previous value to get its current value. &quot;],&quot;topics&quot;:[1,[[0,&quot;Window functions and advanced queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-the-difference-between-rank()-dense_rank()-and-row_number()&quot;],&quot;question&quot;:[0,&quot;What is the difference between RANK(), DENSE_RANK(), and ROW_NUMBER()?&quot;],&quot;answer&quot;:[0,&quot;The **RANK()** function assigns each row a rank according to an ascending or descending order. If there are matching values, it assigns them the same position and then skips the next number for the next rank. For example, if two rows have equivalent values and are both assigned rank 1, the next rank would be 3 instead of 2.\n\n![Window functions](https://assets.roadmap.sh/guest/window-functions-42dn5.png)\n\nLet&#39;s use the `Sales` table from the previous question to illustrate the **RANK()** function. The query to rank in order of the amount looks like this:\n\n```sql\nSELECT\n  id,\n  day,\n  amount,\n  RANK() OVER (ORDER BY amount DESC) AS amount_rank\nFROM\n  sales;\n```\n\nThe result is shown in the image below. You will observe that the amount 900 takes the first rank and 200 the lowest rank. Also, there is a gap between rank 2 and 4 because two values have the same rank. You can also infer that the most sales were on Friday and the least on Monday. \n\n| id | day       | amount | amount_rank |\n| -- | --------- | ------ | ----------- |\n| 5  | Friday    | 900    | 1           |\n| 3  | Wednesday | 600    | 2           |\n| 6  | Saturday  | 600    | 2           |\n| 4  | Thursday  | 390    | 4           |\n| 2  | Tuesday   | 300    | 5           |\n| 1  | Monday    | 200    | 6           |\n\n**DENSE_RANK()** function is similar to **RANK()** in that it assigns ranks to rows, but the difference is that **DENSE_RANK** does not leave a gap when there are two or more equivalent values. Let&#39;s illustrate it with the `Sales` table from above. The query is shown below.\n\n```sql\nSELECT\n  id,\n  day,\n  amount,\n  DENSE_RANK() OVER (ORDER BY amount DESC) AS amount_rank\nFROM\n  sales;\n```\n\nThe result is shown below. As you will notice, there is no gap between the ranks like in the **RANK** function.\n\n| id | day       | amount | amount_rank |\n| -- | --------- | ------ | ----------- |\n| 5  | Friday    | 900    | 1           |\n| 3  | Wednesday | 600    | 2           |\n| 6  | Saturday  | 600    | 2           |\n| 4  | Thursday  | 390    | 3           |\n| 2  | Tuesday   | 300    | 4           |\n| 1  | Monday    | 200    | 5           |\n\n**ROW_NUMBER** assigns a unique number to each row depending on the order you specify. It does not skip numbers; even though there are equivalent values, it assigns them different numbers, unlike **RANK** and **DENSE_RANK** functions that give them the same rank.\n\nLet&#39;s use the same `Sales` table to illustrate. The query below shows how to use the **ROW_NUMBER** function.\n\n```sql\nSELECT\n  id,\n  day,\n  amount,\n  ROW_NUMBER() OVER (ORDER BY amount DESC) AS rowNumber\nFROM\n  sales;\n```\n\nThe result is shown in the image below. You will notice that the `rownumber` column increases, and even though there are matching values, it just assigns a unique row number to each.\n\n| id | day       | amount | amount_rank |\n| -- | --------- | ------ | ----------- |\n| 5  | Friday    | 900    | 1           |\n| 3  | Wednesday | 600    | 2           |\n| 6  | Saturday  | 600    | 3           |\n| 4  | Thursday  | 390    | 4           |\n| 2  | Tuesday   | 300    | 5           |\n| 1  | Monday    | 200    | 6           | &quot;],&quot;topics&quot;:[1,[[0,&quot;Window functions and advanced queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-lag()-and-lead()-in-sql-give-an-example-use-case&quot;],&quot;question&quot;:[0,&quot;What is LAG() and LEAD() in SQL? Give an example use case&quot;],&quot;answer&quot;:[0,&quot;**LAG()** and **LEAD()** are window functions used to retrieve data from rows before and after a specified row. You can also refer to them as positional SQL functions.\n\n**LAG()** allows you to access a value stored in rows before the current row. The row may be directly before or some rows before. Let&#39;s take a look at the syntax:\n\n```sql\nLAG(column_name, offset, default_value)\n```\n\nIt takes three arguments.\n\n- **column_name**: This specifies the column to fetch from the previous row.\n- **offset**: This is an optional argument and specifies the number of rows behind to look at. The default is 1.\n- **default_value**: This is the value to assign when no previous row exists. It is optional, and the default is NULL.\n\nUsing the `Sales` table, let&#39;s illustrate the **LAG()** function. The query is used to find the previous day sales. LAG() is useful when you want to create reports of past events.\n\n| id | day       | amount |\n| -- | --------- | ------ |\n| 1  | Monday    | 200    |\n| 2  | Tuesday   | 300    |\n| 3  | Wednesday | 600    |\n| 4  | Thursday  | 390    |\n| 5  | Friday    | 900    |\n| 6  | Saturday  | 600    |\n\n```sql\nSELECT\n  id,\n  day,\n  amount,\n  LAG(amount) OVER (ORDER BY id) AS previous_day_sales\nFROM\n  sales;\n```\n\nThe result of the query looks like this:\n\n| id | day       | amount | previous_day_sales |\n| -- | --------- | ------ | ------------------ |\n| 1  | Monday    | 200    | null               |\n| 2  | Tuesday   | 300    | 200                |\n| 3  | Wednesday | 600    | 300                |\n| 4  | Thursday  | 390    | 600                |\n| 5  | Friday    | 900    | 390                |\n| 6  | Saturday  | 600    | 900                |\n\nYou use the **LEAD()** function to get data from rows after the current row. Its syntax is similar to that of the **LAG()** function. You can use it for forecasting future trends by looking ahead.\n\nThe query using the **LEAD()** function is shown below.\n\n```sql\nSELECT\n  id,\n  day,\n  amount,\n  LEAD(amount) OVER (ORDER BY id) AS previous_day_sales\nFROM\n  sales;\n```\n\n| id | day       | amount | previous_day_sales |\n| -- | --------- | ------ | ------------------ |\n| 1  | Monday    | 200    | 300                |\n| 2  | Tuesday   | 300    | 600                |\n| 3  | Wednesday | 600    | 390                |\n| 4  | Thursday  | 390    | 900                |\n| 5  | Friday    | 900    | 600                |\n| 6  | Saturday  | 600    | null               | &quot;],&quot;topics&quot;:[1,[[0,&quot;Window functions and advanced queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;how-will-you-detect-gaps-in-a-sequence-of-dates-per-user&quot;],&quot;question&quot;:[0,&quot;How will you detect gaps in a sequence of dates per user?&quot;],&quot;answer&quot;:[0,&quot;You will use the **LAG()** function to detect gaps in a sequence of dates per user. You will compare each date with the previous one and check if the difference is greater than 1.  \n\nLet&#39;s use a table `ClockIns` to demonstrate how you detect gaps. The table has two columns, `userId` and `clockInDate`, representing the user identification number and the date the user clocked in with an access card into a facility. The table looks like this:\n\n| userId | clockInDate |\n| ------ | ----------- |\n| 1      | 2025-01-01  |\n| 1      | 2025-01-02  |\n| 1      | 2025-01-05  |\n| 1      | 2025-01-06  |\n| 2      | 2025-01-06  |\n| 2      | 2025-01-06  |\n| 2      | 2025-01-07  |\n| 3      | 2025-01-02  |\n| 3      | 2025-01-04  |\n| 3      | 2025-01-06  |\n| 3      | 2025-01-07  |\n\nTo query to find gaps per user looks like this:\n\n```sql\nWITH clockInGaps AS (\n  SELECT\n    userid,\n    clockInDate,\n    LAG(clockInDate) OVER (PARTITION BY userId ORDER BY clockInDate) AS previousClockInDate\n  FROM\n    clockIns\n)\n\nSELECT \n  userId,\n  previousClockInDate AS gapStart,\n  clockInDate AS gapEend,\n  clockInDate - previousClockInDate - 1 AS gapDays\nFROM clockInGaps\nWHERE clockInDate - previousClockInDate &gt; 1\nORDER BY userId, gapStart;\n```\n\nThe code above starts with creating an expression `clockInGaps` that queries for each user and their `clockInDate` and uses the `LAG` function to get the previous date for each user. Then, the main query filters each row and finds the gaps between the current date and the previous date. The result of the query looks like this:\n\n| userId | gapStart   | gapEnd     | gapDays |\n| ------ | ---------- | ---------- | ------- |\n| 1      | 2025-01-02 | 2025-01-05 | 2       |\n| 2      | 2025-01-07 | 2025-01-10 | 2       |\n| 3      | 2025-01-02 | 2025-01-04 | 1       |\n| 3      | 2025-01-04 | 2025-01-06 | 1       | &quot;],&quot;topics&quot;:[1,[[0,&quot;Window functions and advanced queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-does-the-ntile()-function-do-and-how-might-it-be-useful-in-analyzing-data&quot;],&quot;question&quot;:[0,&quot;What does the NTILE() function do, and how might it be useful in analyzing data?&quot;],&quot;answer&quot;:[0,&quot;**NTILE()** is a window function that divides rows into a pre-defined number of roughly equal groups. It&#39;s like breaking your data into different sets based on your defined criteria. For example, let&#39;s say you have some student scores from 1 to 100; you can use the **NTILE()** function to categorize the scores into different groups or buckets. \n\nThe syntax of the `NTILE()` function is:\n\n```sql\nNTILE(n) OVER (ORDER BY some_column)\n```\n\n- n: represents the number of groups you want to divide your rows into.\n- ORDER BY: defines the order of the rows in each group where the function is applied.\n\n \nLet&#39;s see a practical example using a table `Scores`. The table stores students&#39; scores on a test. We will see how to use the **NTILE()** function.\n\n| userId | score |\n| ------ | ----- |\n| 1      | 78    |\n| 2      | 70    |\n| 3      | 90    |\n| 4      | 98    |\n| 5      | 60    |\n| 6      | 88    |\n| 7      | 100   |\n| 8      | 66    |\n\nThe query using the **NTILE()** function looks like this:\n\n```sql\nSELECT\n  id,\n  score,\n  NTILE(3) OVER (ORDER BY score DESC) AS category\nFROM scores;\n```\n\n| userId | score | category |\n| ------ | ----- | -------- |\n| 7      | 100   | 1        |\n| 4      | 98    | 1        |\n| 3      | 90    | 1        |\n| 6      | 88    | 2        |\n| 1      | 78    | 2        |\n| 2      | 70    | 2        |\n| 8      | 66    | 3        |\n| 5      | 60    | 3        |\n\nThe **NTILE()** function is useful in data analysis because it can detect outliers in a data set and create histograms of data. It can also create percentiles and quartiles for data distribution. &quot;],&quot;topics&quot;:[1,[[0,&quot;Window functions and advanced queries&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;how-would-you-optimize-slow-running-queries&quot;],&quot;question&quot;:[0,&quot;How would you optimize slow-running queries?&quot;],&quot;answer&quot;:[0,&quot;To optimize slow-running queries, you need to analyze the query first to know what to optimize. You can perform different optimizations depending on the query. Some of the optimizations include:\n\n- **Using indexes effectively**: Indexes speed up queries by enabling the database to find entries that fit specific criteria quickly. Indexing is the process of mapping the values of one or more columns to a unique value that makes it easy to search for rows that match a search criteria. You can create indexes on columns used frequently in the **WHERE**, **JOIN**, and **ORDER BY** clauses. However, note that creating too many indexes can slow down inserts, updates, and deletions.\n\n- **Avoid SELECT *** : Using the **SELECT** ***** statement can slow down your query performance because it returns all the columns in a table including the ones not needed for the query. You should select only the columns that you need for a query for optimal performance. So when you see a query that selects all columns, you should check if all the columns are really needed and used further down the query chain.\n\n- **Avoid using subqueries**: Subqueries slow down query performance, especially when you use them in the `WHERE` or `HAVING` clauses. You should avoid using subqueries where possible and use JOINs or other techniques instead.\n\n- **Utilize stored procedures**: Stored procedures are precompiled SQL statements stored in a database, and can be called from an application or directly from a query. Using stored procedures can improve your query performance by reducing the amount of data that is sent between the database and your application, and also saves time required to compile the SQL statements. &quot;],&quot;topics&quot;:[1,[[0,&quot;Optimization and pitfalls&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;why-should-you-avoid-select-*-in-production-code&quot;],&quot;question&quot;:[0,&quot;Why should you avoid SELECT \\* in production code?&quot;],&quot;answer&quot;:[0,&quot;You should avoid using **SELECT ***  as much as possible in your production code for the following reasons:\n\n- **Increased IO**: Using **SELECT ***, you can return unnecessary data that leads to increased Input/Output cycles at the database level since you will be reading all the data in a table. This effect will be more impactful on a table with a lot of data and even slow down your query.\n\n- **Increased network traffic**: **SELECT *** returns more data than required to the client, which uses more network bandwidth than needed. The increase in network bandwidth causes data to take longer to reach the client application and impacts the application&#39;s performance.\n\n- **More application memory**: The return of a lot of data would make your application require more memory to hold the unnecessary data which might you might not use and this impacts application performance.\n\n- **Makes maintenance more difficult**: Using **SELECT *** makes code maintenance more challenging. If the table structure changes by adding, removing, or renaming columns, the queries using **SELECT *** could break unexpectedly. You should explicitly specify the columns from which you want to fetch data to ensure resilience against potential changes in the database schema. &quot;],&quot;topics&quot;:[1,[[0,&quot;Optimization and pitfalls&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-the-impact-of-missing-indexes&quot;],&quot;question&quot;:[0,&quot;What is the impact of missing indexes?&quot;],&quot;answer&quot;:[0,&quot;Missing indexes can affect the performance of queries, especially when the data grows. The major impacts of missing indexes are listed below:\n\n- **Slow queries**: Without indexes, every read query will go through the whole table to find matching rows. This will get worse as the data in the table grows.\n- **Locking and concurrency issues**: Scanning a table without indexes takes longer, and locking the table can prevent other queries from running, affecting application performance.\n- **Inefficient joins**: Joins on tables without indexes on the join keys are extremely slow and result in bad query performance.\n- **Poor user experience**: Missing indexes can lead to poor user experience in your applications. It can result to slower page loads, application hanging when data is being fetched from the database. &quot;],&quot;topics&quot;:[1,[[0,&quot;Optimization and pitfalls&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-is-a-sargable-query&quot;],&quot;question&quot;:[0,&quot;What is a SARGable query?&quot;],&quot;answer&quot;:[0,&quot;SARGable stands for Search Argumentable query, which uses indexes and leads to efficient queries. If a query is SARGable, the database engine quickly locates rows using indexes, avoids scanning the whole table, and improves query performance. &quot;],&quot;topics&quot;:[1,[[0,&quot;Optimization and pitfalls&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;what-are-some-common-mistakes-when-using-group-by&quot;],&quot;question&quot;:[0,&quot;What are some common mistakes when using GROUP BY?&quot;],&quot;answer&quot;:[0,&quot;The common mistakes people encounter when using the **GROUP BY** clause include:\n\n- **Selecting non-aggregated columns not in the GROUP BY clause:** This is a common mistake made my beginners and experts. An example query of this looks like this:\n\n```sql\nSELECT day, amount FROM Sales\nGROUP BY day\n```\n\nIn the query above, the `amount` column is not part of the `GROUP BY` clause and will throw an error that it must appear in the `GROUP BY` clause. To fix this, you should add an aggregate function to the amount column.\n\n```sql\nSELECT day, MAX(amount) FROM Sales\nGROUP BY day\n```\n\n- **Not using aggregate functions:** It is also a common mistake to use `GROUP BY` without aggregate functions. `GROUP BY` usually goes with aggregate functions like `MAX`, `MIN`, `COUNT`, etc.\n- **Grouping by multiple columns**: Grouping by multiple columns can make the query meaningless. It is not common to group by many columns, and when this happens, you should check if you really need to group by those columns. &quot;],&quot;topics&quot;:[1,[[0,&quot;Optimization and pitfalls&quot;]]],&quot;isLongAnswer&quot;:[0,true]}],[0,{&quot;id&quot;:[0,&quot;why-can-not-in-lead-to-unexpected-results-with-nulls&quot;],&quot;question&quot;:[0,&quot;Why can NOT IN lead to unexpected results with NULLS?&quot;],&quot;answer&quot;:[0,&quot;Since NULL is unknown, a `NOT IN` query containing a NULL or NULL in the list of possible values will always return 0 records because of the unknown result introduced by the NULL value. SQL cannot determine for sure whether the value is not in that list.\n\nLet&#39;s illustrate this using a table `Sales` that looks like this:\n\n| id | day       | amount |\n| -- | --------- | ------ |\n| 1  | Monday    | 200    |\n| 2  | Tuesday   | 300    |\n| 3  | Wednesday | 600    |\n| 4  | Thursday  | 390    |\n| 5  | Friday    | 900    |\n| 6  | Saturday  | 600    |\n\nIf you run the query below, it will return an empty result because SQL cannot determine if the value is not in the list because nothing equals or doesn&#39;t equal NULL.\n\n```sql\nSELECT * from sales\nWHERE amount NOT IN (200, 300, 600, NULL);\n``` &quot;],&quot;topics&quot;:[1,[[0,&quot;Optimization and pitfalls&quot;]]],&quot;isLongAnswer&quot;:[0,true]}]]]}" ssr client="load" opts="{&quot;name&quot;:&quot;QuestionsList&quot;,&quot;value&quot;:true}" await-children><div class="mb-0 gap-3 text-center sm:mb-40"><div class="mb-3 overflow-hidden rounded-lg border border-gray-300 bg-white p-4 sm:mb-5 sm:p-6"><div class="mb-3 flex items-center text-gray-600"><div class="relative w-full flex-1 rounded-xl bg-gray-200 p-1"><div class="absolute top-0 bottom-0 left-0 rounded-xl bg-slate-800 transition-[width] duration-400" style="width:0%"></div></div><span class="ml-3 flex items-center text-sm"><button class="text-zinc-400 hover:text-black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left h-4" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span class="block min-w-[41px] text-center"><span class="tabular-nums">0</span> / <!-- -->30</span><button class="text-zinc-400 hover:text-black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></span></div><div class="relative -left-1 flex flex-col gap-2 text-sm text-black sm:flex-row sm:gap-3"><span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big mr-1 h-4" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span>Knew</span><span class="ml-2 rounded-md bg-gray-200/80 px-1.5 font-medium text-black"><span class="tabular-nums">0</span> Items</span></span><span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles mr-1 h-4" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg><span>Learnt</span><span class="ml-2 rounded-md bg-gray-200/80 px-1.5 font-medium text-black"><span class="tabular-nums">0</span> Items</span></span><span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-skip-forward mr-1 h-4" aria-hidden="true"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" x2="19" y1="5" y2="19"></line></svg><span>Skipped</span><span class="ml-2 rounded-md bg-gray-200/80 px-1.5 font-medium text-black"><span class="tabular-nums">0</span> Items</span></span><button class="flex items-center text-red-600 transition-opacity duration-300 hover:text-red-900 disabled:opacity-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw mr-1 h-4" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>Reset<span class="inline lg:hidden">Progress</span></button></div></div><div class="relative mb-4 flex min-h-[250px] w-full overflow-hidden rounded-lg border border-gray-300 bg-white sm:min-h-[400px]"><div class="flex grow flex-col items-center justify-center py-5 sm:py-8"><div class="hidden text-gray-400 sm:block"><span class="capitalize">Foundational SQL Queries</span></div><div class="mx-auto flex max-w-[550px] flex-1 items-center justify-center py-3 sm:py-8"><p class="px-4 text-xl font-semibold leading-snug! text-black sm:text-3xl">What is the difference between WHERE and HAVING?</p></div><div class="text-center"><button class="cursor-pointer text-sm text-gray-500 underline underline-offset-4 transition-colors hover:text-black sm:text-base">Click to Reveal the Answer</button></div></div><div class="absolute left-0 right-0 flex flex-col items-center justify-center rounded-[7px] bg-neutral-100 py-4 text-sm leading-normal text-black transition-all duration-300 sm:py-8 sm:text-xl top-full"><div class="qa-answer prose prose-h5:font-semibold prose-h5:mb-2 prose-h5:text-black prose-sm prose-quoteless mx-auto flex w-full max-w-[600px] grow flex-col items-start justify-center py-0 px-4 text-left text-sm prose-h1:mb-2.5 prose-h1:mt-7 prose-h2:mb-3 prose-h2:mt-0 prose-h3:mb-[5px] prose-h3:mt-[10px] prose-p:mb-2 prose-p:mt-0 prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-pre:mb-6! prose-pre:w-full prose-ul:my-2 prose-li:m-0 prose-li:mb-0.5 sm:px-5 sm:text-lg sm:prose-p:mb-4"><p>You use <strong>WHERE</strong> for filtering rows before applying any grouping or aggregation.
+The code snippet below illustrates the use of <strong>WHERE</strong>. It filters the <code>Users</code> table for rows where the <code>Age</code> is greater than 18.</p>
+<pre><code class="language-sql">SELECT * FROM Users
+WHERE Age &gt; 18;
+</code></pre>
+<p>The result of the query is similar to the table below.</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Will</td>
+<td>Liam</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wade</td>
+<td>Great</td>
+<td>32</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Peter</td>
+<td>Smith</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>On the other hand, you use <strong>HAVING</strong> to filter groups after performing grouping and aggregation. You apply it to the result of aggregate functions, and it is mostly used with the <strong>GROUP BY</strong> clause.</p>
+<pre><code class="language-sql">SELECT FirstName, Age FROM Users
+GROUP BY FirstName, Age
+HAVING Age &gt; 30;
+</code></pre>
+<p>The code above selects the <code>FirstName</code> and <code>Age</code> columns, then groups by the <code>FirstName</code> and <code>Age</code>, and finally gets entries with age greater than 30. The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>firstName</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wade</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Jane</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+</div><div class="mt-7 text-center"><button class="cursor-pointer text-sm text-gray-500 underline underline-offset-4 transition-colors hover:text-black sm:text-base">Hide the Answer</button></div></div></div><div class="flex flex-col gap-1 transition-opacity duration-300 sm:flex-row sm:gap-3 opacity-100"><button class="flex flex-1 items-center rounded-md border border-gray-300 bg-white px-2 py-2 text-sm text-black transition-colors hover:border-black hover:bg-black hover:text-white disabled:pointer-events-none disabled:opacity-50 sm:rounded-lg sm:px-4 sm:py-3 sm:text-base"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big mr-1 h-4 text-current" aria-hidden="true"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>Already Know that</button><button class="flex flex-1 items-center rounded-md border border-gray-300 bg-white px-2 py-2 text-sm text-black transition-colors hover:border-black hover:bg-black hover:text-white disabled:pointer-events-none disabled:opacity-50 sm:rounded-lg sm:px-4 sm:py-3 sm:text-base"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles mr-1 h-4 text-current" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>Didn&#x27;t Know that</button><button data-next-question="skip" class="flex flex-1 items-center rounded-md border border-red-600 px-2 py-2 text-sm text-red-600 hover:bg-red-600 hover:text-white disabled:pointer-events-none disabled:opacity-50 sm:rounded-lg sm:px-4 sm:py-3 sm:text-base"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-skip-forward mr-1 h-4" aria-hidden="true"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" x2="19" y1="5" y2="19"></line></svg>Skip Question</button></div></div><!--astro:end--></astro-island> </div> <h2 id="questions-list">Questions List</h2> <p>
+If you prefer to see the questions in a list format, you can find them
+        below.
+</p> <div class="mb-5"> <h3 id="foundational-sql-queries" class="mb-0 capitalize"> Foundational SQL Queries </h3> <div class="mb-5"> <h4>What is the difference between WHERE and HAVING?</h4> <div><p>You use <strong>WHERE</strong> for filtering rows before applying any grouping or aggregation.
+The code snippet below illustrates the use of <strong>WHERE</strong>. It filters the <code>Users</code> table for rows where the <code>Age</code> is greater than 18.</p>
+<pre><code class="language-sql">SELECT * FROM Users
+WHERE Age &gt; 18;
+</code></pre>
+<p>The result of the query is similar to the table below.</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Will</td>
+<td>Liam</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wade</td>
+<td>Great</td>
+<td>32</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Peter</td>
+<td>Smith</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>On the other hand, you use <strong>HAVING</strong> to filter groups after performing grouping and aggregation. You apply it to the result of aggregate functions, and it is mostly used with the <strong>GROUP BY</strong> clause.</p>
+<pre><code class="language-sql">SELECT FirstName, Age FROM Users
+GROUP BY FirstName, Age
+HAVING Age &gt; 30;
+</code></pre>
+<p>The code above selects the <code>FirstName</code> and <code>Age</code> columns, then groups by the <code>FirstName</code> and <code>Age</code>, and finally gets entries with age greater than 30. The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>firstName</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wade</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Jane</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>How do you find duplicates in a table?</h4> <div><p>To find duplicate records, you must first define the criteria for detecting duplicates. Is it a combination of two or more columns where you want to detect the duplicates, or are you searching for duplicates within a single column?</p>
+<p>The following steps will help you find duplicate data in a table.</p>
+<ul>
+<li>Use the <strong>GROUP BY</strong> clause to group all the rows by the column(s) on which you want to check the duplicate values.</li>
+<li>Use the <strong>COUNT</strong> function in the <strong>HAVING</strong> command to check if any groups have more than one entry.</li>
+</ul>
+<p>Let's see how to handle single-column duplicates. In a table <code>Users</code>, there are three users who are 30 years of age. Let's use the <strong>GROUP BY</strong> clause and <strong>COUNT</strong> function to find the duplicate values.</p>
+<pre><code class="language-sql">SELECT Age, COUNT(Age)
+FROM Users
+GROUP BY Age
+HAVING COUNT(Age) &gt; 1
+</code></pre>
+<p>The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>age</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Handling multi-column (composite) duplicates is similar to handling single-column duplicates.</p>
+<pre><code class="language-sql">SELECT FirstName, LastName, COUNT(*) AS dup_count
+FROM Users
+GROUP BY FirstName, LastName
+HAVING COUNT(*) &gt; 1;
+</code></pre>
+<p>After finding duplicates, you might be asked how to delete the duplicates. The query to delete duplicates is shown below using Common Table Expression (CTE) and ROW_NUMBER().</p>
+<pre><code class="language-sql">WITH ranked AS (
+  SELECT *,
+         ROW_NUMBER() OVER (PARTITION BY Age ORDER BY id) AS rn
+  FROM Users
+)
+DELETE FROM Users
+WHERE id IN (
+  SELECT id
+  FROM ranked
+  WHERE rn &gt; 1
+);
+</code></pre>
+<p>The query deletes all the duplicates while retaining the first row of data.</p>
+</div> </div><div class="mb-5"> <h4>What is the difference between INNER JOIN and LEFT JOIN?</h4> <div><p>A <strong>JOIN</strong> combines data from two or more tables based on a related column between them. It is useful when you need to retrieve data spread across multiple tables in relational database management systems.</p>
+<p>An <strong>INNER JOIN</strong> returns only rows with a match in both tables based on the specified join condition. If there are no matching rows, there will be no results. The SQL syntax for an <strong>INNER JOIN</strong> is shown in the code snippet below.</p>
+<p><img src="https://assets.roadmap.sh/guest/inner-join-vs-left-join-tifdp.png" alt="Inner join vs. Left join"></p>
+<pre><code class="language-sql">SELECT table1.column_name1, table1.column_name2, table2.column_name1, table2.column_name2 FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name
+</code></pre>
+<p>For example, there are two tables <code>Users</code> and <code>Cities</code> with the following data:</p>
+<p><strong>Users table</strong></p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+<th>cityId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Will</td>
+<td>Liam</td>
+<td>25</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wade</td>
+<td>Great</td>
+<td>32</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Peter</td>
+<td>Smith</td>
+<td>27</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Rich</td>
+<td>Mond</td>
+<td>30</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Rach</td>
+<td>Mane</td>
+<td>30</td>
+<td>2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zach</td>
+<td>Ridge</td>
+<td>30</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cities table</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>London</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Manchester</td>
+</tr>
+</tbody>
+</table>
+<p>Let's say you want to retrieve a list of users and their respective city names. You can achieve this using the <strong>INNER JOIN</strong> query.</p>
+<pre><code class="language-sql">SELECT users.firstName, users.lastName, users.age, cities.name as cityName FROM users
+INNER JOIN cities
+ON users.cityId = cities.id
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+<th>cityName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Will</td>
+<td>Liam</td>
+<td>25</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Wade</td>
+<td>Great</td>
+<td>32</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Peter</td>
+<td>Smith</td>
+<td>27</td>
+<td>Manchester</td>
+</tr>
+<tr>
+<td>Rich</td>
+<td>Mond</td>
+<td>30</td>
+<td>Manchester</td>
+</tr>
+<tr>
+<td>Rach</td>
+<td>Mane</td>
+<td>30</td>
+<td>Manchester</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LEFT JOIN</strong> returns all the rows from the left table (table 1) and the matched rows from the right table (table 2). If no matching rows exist in the right table (table 2), then NULL values are returned. The SQL syntax for a Left join is shown in the code snippet below.</p>
+<pre><code class="language-sql">SELECT table1.column_name1, table1.column_name2, table2.column_name1, table2.column_name2 FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name 
+</code></pre>
+<p>Let's have a look at a practical example with <code>Users</code> and <code>Cities</code> tables from before.</p>
+<p>When you execute the <strong>LEFT JOIN</strong> query, you get the table below.</p>
+<table>
+<thead>
+<tr>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+<th>cityName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Will</td>
+<td>Liam</td>
+<td>25</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Wade</td>
+<td>Great</td>
+<td>32</td>
+<td>London</td>
+</tr>
+<tr>
+<td>Peter</td>
+<td>Smith</td>
+<td>27</td>
+<td>Manchester</td>
+</tr>
+<tr>
+<td>Rich</td>
+<td>Mond</td>
+<td>30</td>
+<td>Manchester</td>
+</tr>
+<tr>
+<td>Rach</td>
+<td>Mane</td>
+<td>30</td>
+<td>Manchester</td>
+</tr>
+<tr>
+<td>Zach</td>
+<td>Ridge</td>
+<td>30</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>Write a query to find the second highest salary from a table</h4> <div><p>Given a table <code>Salaries</code>,</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4000</td>
+</tr>
+</tbody>
+</table>
+<p>The query to find the second-highest salary is shown in the code snippet below</p>
+<pre><code class="language-sql">SELECT DISTINCT Salary
+FROM Salaries
+ORDER BY Salary DESC
+LIMIT 1 OFFSET 1
+</code></pre>
+<p>The result of the query is shown below</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3000</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>What is the difference between UNION and UNION ALL?</h4> <div><p>UNION is used for removing duplicates while UNION ALL keeps all duplicates. UNION is slower compared to UNION ALL because of de-duplication. You use UNION when you want to obtain unique records and UNION ALL when you want every row even if they are repeated.</p>
+</div> </div><div class="mb-5"> <h4>What are indexes and why are they useful?</h4> <div><p>Indexes in databases are like the indexes in books. They increase the speed of data retrieval from a database. When you want to read data from a table, instead of going through all the rows of the table, indexes help to go straight to the row you are looking for.</p>
+<p><img src="https://assets.roadmap.sh/guest/types-of-indexes-ntfsk.png" alt="Types of Indexes"></p>
+<p>They improve <strong>SELECT</strong> queries, improve performance, and make sorting and filtering faster. They also ensure data integrity. There are different types of indexes, which include:</p>
+<ul>
+<li>B-Tree index</li>
+<li>Composite index</li>
+<li>Unique index</li>
+<li>Full text index</li>
+<li>Bitmap index</li>
+<li>Clustered index</li>
+<li>Non-clustered index</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>What is a primary key?</h4> <div><p>A primary key is the unique identifier of a row of data in a table. You use it to identify each row uniquely, and no two rows can have the same primary key. A primary key column cannot be null. In the example below, <code>user_id</code> is the primary key.</p>
+<pre><code class="language-sql">CREATE TABLE users (
+   user_id INT PRIMARY KEY,
+   name VARCHAR(100),
+   phoneNumber VARCHAR(100)
+);
+</code></pre>
+</div> </div><div class="mb-5"> <h4>What is a foreign key?</h4> <div><p>A foreign key is like a bridge between two tables. A foreign key in one table is the primary key in another. It is the connector between the two tables.</p>
+</div> </div> </div><div class="mb-5"> <h3 id="aggregation-and-grouping" class="mb-0 capitalize"> Aggregation and grouping </h3> <div class="mb-5"> <h4>How does GROUP BY work?</h4> <div><p><strong>GROUP BY</strong> is a standard SQL command that groups rows with the same value in the specified column. You should use with aggregate functions such as <strong>COUNT</strong>, <strong>MIN</strong>, <strong>MAX,</strong> etc.</p>
+<p><img src="https://assets.roadmap.sh/guest/group-by-wc8aw.png" alt="GROUP BY"></p>
+<p>The query below illustrates the <strong>GROUP BY</strong> clause:</p>
+<pre><code class="language-sql">SELECT columnName FROM Table
+GROUP BY columnName
+</code></pre>
+</div> </div><div class="mb-5"> <h4>What happens if you SELECT a column not in the GROUP BY clause?</h4> <div><p>If you <strong>SELECT</strong> a column not in the <strong>GROUP BY</strong> clause, it will throw an error stating that the column must be in the <strong>GROUP BY</strong> clause or in an aggregate function. Let's use the table below as an illustration.</p>
+<table>
+<thead>
+<tr>
+<th>firstName</th>
+<th>lastName</th>
+<th>phoneNumber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John</td>
+<td>Doe</td>
+<td>+23410910</td>
+</tr>
+<tr>
+<td>Jack</td>
+<td>Ray</td>
+<td>+23410911</td>
+</tr>
+<tr>
+<td>Irene</td>
+<td>Rotherdam</td>
+<td>+23410911</td>
+</tr>
+</tbody>
+</table>
+<p>If you run the query below against the database:</p>
+<pre><code class="language-sql">SELECT firstName, phoneNumber FROM phoneNumbers
+GROUP BY phoneNumber
+</code></pre>
+<p>The result will be an error because <code>firstName</code> is not in the <strong>GROUP BY</strong> clause and not using an aggregate function.</p>
+</div> </div><div class="mb-5"> <h4>Write a query to COUNT the number of users by country</h4> <div><p>Given a table <code>Users</code> that looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+<th>country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+<td>Portugal</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+<td>Belgium</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Will</td>
+<td>Liam</td>
+<td>25</td>
+<td>Argentina</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wade</td>
+<td>Great</td>
+<td>32</td>
+<td>Denmark</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Peter</td>
+<td>Smith</td>
+<td>27</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Rich</td>
+<td>Mond</td>
+<td>30</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Rach</td>
+<td>Mane</td>
+<td>30</td>
+<td>Argentina</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zach</td>
+<td>Ridge</td>
+<td>30</td>
+<td>Portugal</td>
+</tr>
+</tbody>
+</table>
+<p>The query to <strong>COUNT</strong> the number of users by country is:</p>
+<pre><code class="language-sql">SELECT country, COUNT(country) FROM users
+GROUP BY country
+</code></pre>
+<p>The query uses the <strong>GROUP BY</strong> clause to group the users by country and then shows the count in the next column. The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>country</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USA</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Portugal</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Argentina</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Belgium</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Denmark</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>What happens if you use GROUP BY without an aggregate function?</h4> <div><p>If you use the <strong>GROUP BY</strong> clause without an aggregate function, it is equivalent to using the <strong>DISTINCT</strong> command. For example, the command below:</p>
+<pre><code class="language-sql">SELECT phoneNumber FROM phoneNumbers
+GROUP BY phoneNumber
+</code></pre>
+<p>is equivalent to:</p>
+<pre><code class="language-sql">SELECT DISTINCT phoneNumber FROM phoneNumbers
+</code></pre>
+</div> </div><div class="mb-5"> <h4>What is the difference between COUNT(\*) and COUNT(column_name)?</h4> <div><p>The difference is that <strong>COUNT(*)</strong> counts all the rows of data, including NULL values, while <strong>COUNT(column_name)</strong> counts only non-NULL values in the specified column. Let's illustrate this using a table named <code>Users</code>.</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>firstName</th>
+<th>lastName</th>
+<th>age</th>
+<th>country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John</td>
+<td>Doe</td>
+<td>30</td>
+<td>Portugal</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jane</td>
+<td>Don</td>
+<td>31</td>
+<td>Belgium</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Zach</td>
+<td>Ridge</td>
+<td>30</td>
+<td>Norway</td>
+</tr>
+<tr>
+<td>4</td>
+<td>null</td>
+<td>Tom</td>
+<td>25</td>
+<td>Denmark</td>
+</tr>
+</tbody>
+</table>
+<p>If you use <strong>COUNT(*)</strong>, the result will be 4 but if you use <strong>COUNT(firstName)</strong>, it will return 3, omitting the null value.</p>
+</div> </div> </div><div class="mb-5"> <h3 id="subqueries-and-nested-logic" class="mb-0 capitalize"> Subqueries and nested logic </h3> <div class="mb-5"> <h4>What is the difference between a subquery and a JOIN?</h4> <div><p>A subquery is a query that is inside another query. You use it for queries that require complex logic. You should use subqueries when you want to use the result of that subquery for another query. In the example below, the subquery is in brackets.</p>
+<p><img src="https://assets.roadmap.sh/guest/sql-subquery-ro4d0.png" alt="Subquery"></p>
+<pre><code class="language-sql">SELECT firstName,
+  (SELECT COUNT(*)
+  FROM cities
+  WHERE cities.id = users.city_id) AS cityCount
+FROM users;
+</code></pre>
+<p>On the other hand, a <strong>JOIN</strong> combines two or more tables based on related columns between them. The related column is usually a foreign key. You should use <strong>JOINS</strong> when you want to pull related data from different tables together. The code below illustrates how to use a <strong>JOIN</strong>.</p>
+<pre><code class="language-sql">SELECT firstName, COUNT(*) FROM users
+JOIN cities ON users.city_id = cities.id
+</code></pre>
+<p>A JOIN is faster than a subquery in the following scenarios:</p>
+<ul>
+<li>When you are querying data from multiple tables.</li>
+<li>When you are filtering or joining on index columns.</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>Write a query to find employees earning more than the average salary</h4> <div><p>Given an <code>Employees</code> table with columns <code>id</code>, <code>name</code>, and <code>salary</code> that looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Irene</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Peter</td>
+<td>1230</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Raymond</td>
+<td>1450</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Henry</td>
+<td>1790</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Naomi</td>
+<td>2350</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Bridget</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Emily</td>
+<td>2500</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Great</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Mercedes</td>
+<td>2750</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Zoe</td>
+<td>2900</td>
+</tr>
+</tbody>
+</table>
+<p>The query to find employees earning more than the average salary is:</p>
+<pre><code class="language-sql">SELECT * FROM employees
+WHERE salary &gt; (SELECT AVG(salary) FROM employees);
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Naomi</td>
+<td>2350</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Emily</td>
+<td>2500</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Great</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Mercedes</td>
+<td>2750</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Zoe</td>
+<td>2900</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>Explain how a correlated subquery works</h4> <div><p>A correlated subquery is a subquery that depends on a value from the outer query. This means that the query is evaluated for each row that might be selected in the outer query. Below is an example of a correlated subquery.</p>
+<pre><code class="language-sql">SELECT name, country_id, salary
+FROM employees em
+WHERE salary &gt; (
+  SELECT AVG(salary) FROM employees
+  country_id = em.country_id);
+</code></pre>
+<p>The code above:</p>
+<ul>
+<li>Runs the outer query through each row of the table.</li>
+<li>Takes the <code>country_id</code> from the <code>employees</code> table.</li>
+<li>Iterates through the other rows and does the same calculation.</li>
+</ul>
+<p>This leads to a degrading performance as the data in the table grows.</p>
+<p>You should use a correlated subquery if you want to perform row-specific operations or cannot achieve an operation using JOIN or other aggregate functions.</p>
+</div> </div><div class="mb-5"> <h4>When should you use EXISTS instead of IN in a subquery?</h4> <div><p><strong>EXISTS</strong> and <strong>IN</strong> are used in subqueries to filter results, but they perform different functions depending on their usage.</p>
+<p>You should use <strong>EXISTS</strong> in the following situations:</p>
+<ul>
+<li>When you want to check if a row exists and not the actual values.</li>
+<li>When the subquery is a correlated query.</li>
+<li>When the subquery returns many rows but you want to get the first match.</li>
+</ul>
+<p>You should use <strong>IN</strong> in the following scenarios:</p>
+<ul>
+<li>When you are comparing a column to a list of values.</li>
+<li>When the subquery returns a small or static list.</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>Can you nest subqueries multiple levels deep?</h4> <div><p>Yes, you can nest subqueries multiple levels deep when you want to perform complex logic. A nested subquery is a subquery inside another subquery, forming layers of subqueries. Many SQL engines allow multiple layers of subqueries, but this causes poor readability and degrades performance.</p>
+</div> </div> </div><div class="mb-5"> <h3 id="window-functions-and-advanced-queries" class="mb-0 capitalize"> Window functions and advanced queries </h3> <div class="mb-5"> <h4>What is a window function?</h4> <div><p>A window function is a function that allows you to perform operations on a specific set of rows related to the current row. Unlike aggregate functions that perform calculations on an entire data set, window functions can perform operations on a subset of data. These calculations are valid for aggregates, ranking, and cumulative totals without altering the original dataset.</p>
+</div> </div><div class="mb-5"> <h4>Write a query to calculate a running total</h4> <div><p>Let's use a table <code>Sales</code> as a reference for this query. It has three columns: <code>id</code>, <code>day</code> which represents the day of the week, and <code>amount</code> which is the amount sold in US Dollars. The table looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>The query to calculate the running total is:</p>
+<pre><code class="language-sql">SELECT
+  id,
+  sale_date,
+  amount,
+  SUM(amount) OVER (ORDER BY sale_date) AS running_total
+FROM
+  sales;
+</code></pre>
+<p>The query uses a Window function <strong>OVER</strong> to sum the amount for each row of data and saving the running total. It gets the total for each day and adds it to the previous totals. The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+<th>running_total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+<td>200</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+<td>500</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+<td>1490</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+<td>2390</td>
+</tr>
+</tbody>
+</table>
+<p>You can observe from the image that the last column is <code>running_total,</code> which takes the amount for the current day and adds it to its previous value to get its current value.</p>
+</div> </div><div class="mb-5"> <h4>What is the difference between RANK(), DENSE_RANK(), and ROW_NUMBER()?</h4> <div><p>The <strong>RANK()</strong> function assigns each row a rank according to an ascending or descending order. If there are matching values, it assigns them the same position and then skips the next number for the next rank. For example, if two rows have equivalent values and are both assigned rank 1, the next rank would be 3 instead of 2.</p>
+<p><img src="https://assets.roadmap.sh/guest/window-functions-42dn5.png" alt="Window functions"></p>
+<p>Let's use the <code>Sales</code> table from the previous question to illustrate the <strong>RANK()</strong> function. The query to rank in order of the amount looks like this:</p>
+<pre><code class="language-sql">SELECT
+  id,
+  day,
+  amount,
+  RANK() OVER (ORDER BY amount DESC) AS amount_rank
+FROM
+  sales;
+</code></pre>
+<p>The result is shown in the image below. You will observe that the amount 900 takes the first rank and 200 the lowest rank. Also, there is a gap between rank 2 and 4 because two values have the same rank. You can also infer that the most sales were on Friday and the least on Monday.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+<th>amount_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DENSE_RANK()</strong> function is similar to <strong>RANK()</strong> in that it assigns ranks to rows, but the difference is that <strong>DENSE_RANK</strong> does not leave a gap when there are two or more equivalent values. Let's illustrate it with the <code>Sales</code> table from above. The query is shown below.</p>
+<pre><code class="language-sql">SELECT
+  id,
+  day,
+  amount,
+  DENSE_RANK() OVER (ORDER BY amount DESC) AS amount_rank
+FROM
+  sales;
+</code></pre>
+<p>The result is shown below. As you will notice, there is no gap between the ranks like in the <strong>RANK</strong> function.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+<th>amount_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+<td>4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ROW_NUMBER</strong> assigns a unique number to each row depending on the order you specify. It does not skip numbers; even though there are equivalent values, it assigns them different numbers, unlike <strong>RANK</strong> and <strong>DENSE_RANK</strong> functions that give them the same rank.</p>
+<p>Let's use the same <code>Sales</code> table to illustrate. The query below shows how to use the <strong>ROW_NUMBER</strong> function.</p>
+<pre><code class="language-sql">SELECT
+  id,
+  day,
+  amount,
+  ROW_NUMBER() OVER (ORDER BY amount DESC) AS rowNumber
+FROM
+  sales;
+</code></pre>
+<p>The result is shown in the image below. You will notice that the <code>rownumber</code> column increases, and even though there are matching values, it just assigns a unique row number to each.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+<th>amount_rank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>What is LAG() and LEAD() in SQL? Give an example use case</h4> <div><p><strong>LAG()</strong> and <strong>LEAD()</strong> are window functions used to retrieve data from rows before and after a specified row. You can also refer to them as positional SQL functions.</p>
+<p><strong>LAG()</strong> allows you to access a value stored in rows before the current row. The row may be directly before or some rows before. Let's take a look at the syntax:</p>
+<pre><code class="language-sql">LAG(column_name, offset, default_value)
+</code></pre>
+<p>It takes three arguments.</p>
+<ul>
+<li><strong>column_name</strong>: This specifies the column to fetch from the previous row.</li>
+<li><strong>offset</strong>: This is an optional argument and specifies the number of rows behind to look at. The default is 1.</li>
+<li><strong>default_value</strong>: This is the value to assign when no previous row exists. It is optional, and the default is NULL.</li>
+</ul>
+<p>Using the <code>Sales</code> table, let's illustrate the <strong>LAG()</strong> function. The query is used to find the previous day sales. LAG() is useful when you want to create reports of past events.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT
+  id,
+  day,
+  amount,
+  LAG(amount) OVER (ORDER BY id) AS previous_day_sales
+FROM
+  sales;
+</code></pre>
+<p>The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+<th>previous_day_sales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+<td>null</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+<td>200</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+<td>300</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+<td>600</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+<td>390</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>You use the <strong>LEAD()</strong> function to get data from rows after the current row. Its syntax is similar to that of the <strong>LAG()</strong> function. You can use it for forecasting future trends by looking ahead.</p>
+<p>The query using the <strong>LEAD()</strong> function is shown below.</p>
+<pre><code class="language-sql">SELECT
+  id,
+  day,
+  amount,
+  LEAD(amount) OVER (ORDER BY id) AS previous_day_sales
+FROM
+  sales;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+<th>previous_day_sales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+<td>300</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+<td>600</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+<td>390</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+<td>900</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+<td>600</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>How will you detect gaps in a sequence of dates per user?</h4> <div><p>You will use the <strong>LAG()</strong> function to detect gaps in a sequence of dates per user. You will compare each date with the previous one and check if the difference is greater than 1.</p>
+<p>Let's use a table <code>ClockIns</code> to demonstrate how you detect gaps. The table has two columns, <code>userId</code> and <code>clockInDate</code>, representing the user identification number and the date the user clocked in with an access card into a facility. The table looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>clockInDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2025-01-01</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2025-01-02</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2025-01-05</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2025-01-06</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2025-01-06</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2025-01-06</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2025-01-07</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-01-02</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-01-04</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-01-06</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-01-07</td>
+</tr>
+</tbody>
+</table>
+<p>To query to find gaps per user looks like this:</p>
+<pre><code class="language-sql">WITH clockInGaps AS (
+  SELECT
+    userid,
+    clockInDate,
+    LAG(clockInDate) OVER (PARTITION BY userId ORDER BY clockInDate) AS previousClockInDate
+  FROM
+    clockIns
+)
+
+SELECT 
+  userId,
+  previousClockInDate AS gapStart,
+  clockInDate AS gapEend,
+  clockInDate - previousClockInDate - 1 AS gapDays
+FROM clockInGaps
+WHERE clockInDate - previousClockInDate &gt; 1
+ORDER BY userId, gapStart;
+</code></pre>
+<p>The code above starts with creating an expression <code>clockInGaps</code> that queries for each user and their <code>clockInDate</code> and uses the <code>LAG</code> function to get the previous date for each user. Then, the main query filters each row and finds the gaps between the current date and the previous date. The result of the query looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>gapStart</th>
+<th>gapEnd</th>
+<th>gapDays</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2025-01-02</td>
+<td>2025-01-05</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2025-01-07</td>
+<td>2025-01-10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-01-02</td>
+<td>2025-01-04</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-01-04</td>
+<td>2025-01-06</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div> </div><div class="mb-5"> <h4>What does the NTILE() function do, and how might it be useful in analyzing data?</h4> <div><p><strong>NTILE()</strong> is a window function that divides rows into a pre-defined number of roughly equal groups. It's like breaking your data into different sets based on your defined criteria. For example, let's say you have some student scores from 1 to 100; you can use the <strong>NTILE()</strong> function to categorize the scores into different groups or buckets.</p>
+<p>The syntax of the <code>NTILE()</code> function is:</p>
+<pre><code class="language-sql">NTILE(n) OVER (ORDER BY some_column)
+</code></pre>
+<ul>
+<li>n: represents the number of groups you want to divide your rows into.</li>
+<li>ORDER BY: defines the order of the rows in each group where the function is applied.</li>
+</ul>
+<p>Let's see a practical example using a table <code>Scores</code>. The table stores students' scores on a test. We will see how to use the <strong>NTILE()</strong> function.</p>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>78</td>
+</tr>
+<tr>
+<td>2</td>
+<td>70</td>
+</tr>
+<tr>
+<td>3</td>
+<td>90</td>
+</tr>
+<tr>
+<td>4</td>
+<td>98</td>
+</tr>
+<tr>
+<td>5</td>
+<td>60</td>
+</tr>
+<tr>
+<td>6</td>
+<td>88</td>
+</tr>
+<tr>
+<td>7</td>
+<td>100</td>
+</tr>
+<tr>
+<td>8</td>
+<td>66</td>
+</tr>
+</tbody>
+</table>
+<p>The query using the <strong>NTILE()</strong> function looks like this:</p>
+<pre><code class="language-sql">SELECT
+  id,
+  score,
+  NTILE(3) OVER (ORDER BY score DESC) AS category
+FROM scores;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>userId</th>
+<th>score</th>
+<th>category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>100</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>98</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>90</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>88</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>78</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>70</td>
+<td>2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>66</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>60</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>NTILE()</strong> function is useful in data analysis because it can detect outliers in a data set and create histograms of data. It can also create percentiles and quartiles for data distribution.</p>
+</div> </div> </div><div class="mb-5"> <h3 id="optimization-and-pitfalls" class="mb-0 capitalize"> Optimization and pitfalls </h3> <div class="mb-5"> <h4>How would you optimize slow-running queries?</h4> <div><p>To optimize slow-running queries, you need to analyze the query first to know what to optimize. You can perform different optimizations depending on the query. Some of the optimizations include:</p>
+<ul>
+<li>
+<p><strong>Using indexes effectively</strong>: Indexes speed up queries by enabling the database to find entries that fit specific criteria quickly. Indexing is the process of mapping the values of one or more columns to a unique value that makes it easy to search for rows that match a search criteria. You can create indexes on columns used frequently in the <strong>WHERE</strong>, <strong>JOIN</strong>, and <strong>ORDER BY</strong> clauses. However, note that creating too many indexes can slow down inserts, updates, and deletions.</p>
+</li>
+<li>
+<p>**Avoid SELECT *** : Using the <strong>SELECT</strong> ***** statement can slow down your query performance because it returns all the columns in a table including the ones not needed for the query. You should select only the columns that you need for a query for optimal performance. So when you see a query that selects all columns, you should check if all the columns are really needed and used further down the query chain.</p>
+</li>
+<li>
+<p><strong>Avoid using subqueries</strong>: Subqueries slow down query performance, especially when you use them in the <code>WHERE</code> or <code>HAVING</code> clauses. You should avoid using subqueries where possible and use JOINs or other techniques instead.</p>
+</li>
+<li>
+<p><strong>Utilize stored procedures</strong>: Stored procedures are precompiled SQL statements stored in a database, and can be called from an application or directly from a query. Using stored procedures can improve your query performance by reducing the amount of data that is sent between the database and your application, and also saves time required to compile the SQL statements.</p>
+</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>Why should you avoid SELECT \* in production code?</h4> <div><p>You should avoid using **SELECT ***  as much as possible in your production code for the following reasons:</p>
+<ul>
+<li>
+<p><strong>Increased IO</strong>: Using **SELECT ***, you can return unnecessary data that leads to increased Input/Output cycles at the database level since you will be reading all the data in a table. This effect will be more impactful on a table with a lot of data and even slow down your query.</p>
+</li>
+<li>
+<p><strong>Increased network traffic</strong>: **SELECT *** returns more data than required to the client, which uses more network bandwidth than needed. The increase in network bandwidth causes data to take longer to reach the client application and impacts the application's performance.</p>
+</li>
+<li>
+<p><strong>More application memory</strong>: The return of a lot of data would make your application require more memory to hold the unnecessary data which might you might not use and this impacts application performance.</p>
+</li>
+<li>
+<p><strong>Makes maintenance more difficult</strong>: Using **SELECT *** makes code maintenance more challenging. If the table structure changes by adding, removing, or renaming columns, the queries using **SELECT *** could break unexpectedly. You should explicitly specify the columns from which you want to fetch data to ensure resilience against potential changes in the database schema.</p>
+</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>What is the impact of missing indexes?</h4> <div><p>Missing indexes can affect the performance of queries, especially when the data grows. The major impacts of missing indexes are listed below:</p>
+<ul>
+<li><strong>Slow queries</strong>: Without indexes, every read query will go through the whole table to find matching rows. This will get worse as the data in the table grows.</li>
+<li><strong>Locking and concurrency issues</strong>: Scanning a table without indexes takes longer, and locking the table can prevent other queries from running, affecting application performance.</li>
+<li><strong>Inefficient joins</strong>: Joins on tables without indexes on the join keys are extremely slow and result in bad query performance.</li>
+<li><strong>Poor user experience</strong>: Missing indexes can lead to poor user experience in your applications. It can result to slower page loads, application hanging when data is being fetched from the database.</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>What is a SARGable query?</h4> <div><p>SARGable stands for Search Argumentable query, which uses indexes and leads to efficient queries. If a query is SARGable, the database engine quickly locates rows using indexes, avoids scanning the whole table, and improves query performance.</p>
+</div> </div><div class="mb-5"> <h4>What are some common mistakes when using GROUP BY?</h4> <div><p>The common mistakes people encounter when using the <strong>GROUP BY</strong> clause include:</p>
+<ul>
+<li><strong>Selecting non-aggregated columns not in the GROUP BY clause:</strong> This is a common mistake made my beginners and experts. An example query of this looks like this:</li>
+</ul>
+<pre><code class="language-sql">SELECT day, amount FROM Sales
+GROUP BY day
+</code></pre>
+<p>In the query above, the <code>amount</code> column is not part of the <code>GROUP BY</code> clause and will throw an error that it must appear in the <code>GROUP BY</code> clause. To fix this, you should add an aggregate function to the amount column.</p>
+<pre><code class="language-sql">SELECT day, MAX(amount) FROM Sales
+GROUP BY day
+</code></pre>
+<ul>
+<li><strong>Not using aggregate functions:</strong> It is also a common mistake to use <code>GROUP BY</code> without aggregate functions. <code>GROUP BY</code> usually goes with aggregate functions like <code>MAX</code>, <code>MIN</code>, <code>COUNT</code>, etc.</li>
+<li><strong>Grouping by multiple columns</strong>: Grouping by multiple columns can make the query meaningless. It is not common to group by many columns, and when this happens, you should check if you really need to group by those columns.</li>
+</ul>
+</div> </div><div class="mb-5"> <h4>Why can NOT IN lead to unexpected results with NULLS?</h4> <div><p>Since NULL is unknown, a <code>NOT IN</code> query containing a NULL or NULL in the list of possible values will always return 0 records because of the unknown result introduced by the NULL value. SQL cannot determine for sure whether the value is not in that list.</p>
+<p>Let's illustrate this using a table <code>Sales</code> that looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>day</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Monday</td>
+<td>200</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tuesday</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wednesday</td>
+<td>600</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thursday</td>
+<td>390</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Friday</td>
+<td>900</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Saturday</td>
+<td>600</td>
+</tr>
+</tbody>
+</table>
+<p>If you run the query below, it will return an empty result because SQL cannot determine if the value is not in the list because nothing equals or doesn't equal NULL.</p>
+<pre><code class="language-sql">SELECT * from sales
+WHERE amount NOT IN (200, 300, 600, NULL);
+</code></pre>
+</div> </div> </div><div class="mb-5"> <div><h2>Wrapping up</h2>
+<p>Mastering SQL queries is essential for anyone working with databases, whether you're a beginner just starting out or an experienced developer looking to sharpen your skills. The 30 questions covered in this guide span from foundational concepts like JOINs and WHERE clauses to advanced topics such as window functions and query optimization.</p>
+<p>Remember that SQL proficiency comes with practice. Take time to implement these queries in your own database environment, experiment with different scenarios, and understand how each function behaves with various data sets. The more you practice, the more confident you'll become in handling complex database challenges during interviews and in real-world applications.</p>
+<p>Keep this guide handy as a reference, and don't hesitate to revisit the concepts that challenge you most. Good luck with your SQL journey and upcoming interviews!</p>
+</div> </div> </div> </div> </article>  <div> <div class="bg-slate-900 py-6 pb-10 text-white sm:py-16"> <div class="container"> <p class="mb-8 flex flex-col justify-center gap-0 font-medium text-gray-400 sm:mb-16 sm:flex-row sm:gap-4"> <a class="border-b border-b-gray-700 px-2 py-1.5 transition-colors hover:text-white sm:border-b-0 sm:px-0 sm:py-0" href="/roadmaps">Roadmaps</a> <a class="border-b border-b-gray-700 px-2 py-1.5 transition-colors hover:text-white sm:border-b-0 sm:px-0 sm:py-0" href="/best-practices">Best Practices</a> <a class="border-b border-b-gray-700 px-2 py-1.5 transition-colors hover:text-white sm:border-b-0 sm:px-0 sm:py-0" href="/guides">Guides</a> <a class="border-b border-b-gray-700 px-2 py-1.5 transition-colors hover:text-white sm:border-b-0 sm:px-0 sm:py-0" href="/videos">Videos</a> <a class="border-b border-b-gray-700 px-2 py-1.5 transition-colors hover:text-white sm:border-b-0 sm:px-0 sm:py-0" href="/about">FAQs</a> <a class="px-2 py-1.5 transition-colors hover:text-white sm:border-b-0 sm:px-0 sm:py-0" href="https://youtube.com/theroadmap?sub_confirmation=1" target="_blank">YouTube</a> </p> <div class="flex flex-col justify-between gap-8 lg:flex-row lg:gap-2"> <div class="max-w-[425px]"> <p class="text-md flex items-center"> <a class="inline-flex items-center text-lg font-medium text-white transition-colors hover:text-gray-400" href="/"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 283 283" fill="#000" xmlns:v="https://vecta.io/nano"><path fill="#fff" d="M0 39C0 17.46 17.46 0 39 0h205c21.539 0 39 17.46 39 39v205c0 21.539-17.461 39-39 39H39c-21.54 0-39-17.461-39-39V39Z"></path><path d="M121.215 210.72c-1.867.56-4.854 1.12-8.96 1.68-3.92.56-8.027.84-12.32.84-4.107 0-7.84-.28-11.2-.84-3.174-.56-5.88-1.68-8.12-3.36s-4.014-3.92-5.32-6.72c-1.12-2.987-1.68-6.813-1.68-11.48v-84c0-4.293.746-7.933 2.24-10.92 1.68-3.173 4.013-5.973 7-8.4s6.626-4.573 10.92-6.44c4.48-2.053 9.24-3.827 14.28-5.32a106.176 106.176 0 0 1 15.68-3.36 95.412 95.412 0 0 1 16.24-1.4c8.96 0 16.053 1.773 21.28 5.32 5.226 3.36 7.84 8.96 7.84 16.8 0 2.613-.374 5.227-1.12 7.84-.747 2.427-1.68 4.667-2.8 6.72a133.1 133.1 0 0 0-12.04.56c-4.107.373-8.12.933-12.04 1.68s-7.654 1.587-11.2 2.52c-3.36.747-6.254 1.68-8.68 2.8v95.48zm45.172-22.4c0-7.84 2.426-14.373 7.28-19.6s11.48-7.84 19.88-7.84 15.026 2.613 19.88 7.84 7.28 11.76 7.28 19.6-2.427 14.373-7.28 19.6-11.48 7.84-19.88 7.84-15.027-2.613-19.88-7.84-7.28-11.76-7.28-19.6z"></path></svg> <span class="ml-2">roadmap.sh</span> </a> <span class="mx-2 text-gray-400">by</span> <a class="font-regular rounded-md bg-blue-600 px-1.5 py-1 text-sm hover:bg-blue-700" href="https://x.com/kamrify" target="_blank"> <span class="hidden sm:inline">@kamrify</span> <span class="inline sm:hidden">@kamrify</span> </a> </p> <p class="my-4 text-slate-300/60">
+Community created roadmaps, best practices, projects, articles,
+          resources and journeys to help you choose your path and grow in your
+          career.
+</p> <div class="text-sm text-gray-400"> <p>
+&copy; roadmap.sh
+<span class="mx-1.5">&middot;</span> <a href="/terms" class="hover:text-white">Terms</a> <span class="mx-1.5">&middot;</span> <a href="/privacy" class="hover:text-white">Privacy</a> <span class="mx-1.5">&middot;</span> <a aria-label="Follow on LinkedIn" href="https://www.linkedin.com/company/roadmapsh" class="hover:text-white" target="_blank"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block h-5 w-5 fill-current">
+    <g clip-path="url(#clip0_2344_20)">
+        <path d="M0 0V24H24V0H0ZM8 19H5V8H8V19ZM6.5 6.732C5.534 6.732 4.75 5.942 4.75 4.968C4.75 3.994 5.534 3.204 6.5 3.204C7.466 3.204 8.25 3.994 8.25 4.968C8.25 5.942 7.467 6.732 6.5 6.732ZM20 19H17V13.396C17 10.028 13 10.283 13 13.396V19H10V8H13V9.765C14.397 7.179 20 6.988 20 12.241V19Z" fill="currentColor"></path>
+    </g>
+    <defs>
+        <clipPath id="clip0_2344_20">
+            <rect width="24" height="24" rx="2" fill="white"></rect>
+        </clipPath>
+    </defs>
+</svg> </a> <a aria-label="Subscribe to YouTube channel" href="https://youtube.com/theroadmap?sub_confirmation=1" target="_blank" class="ml-2 hover:text-white"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns:v="https://vecta.io/nano" class="inline-block h-5 w-5"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 3.993L9 16z"></path></svg> </a> <a aria-label="Follow on Twitter" href="https://twitter.com/roadmapsh" target="_blank" class="ml-2 hover:text-white"> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50" class="inline-block h-5 w-5 fill-current">
+<path d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"></path>
+</svg> </a> <a aria-label="Follow on Blusky" href="http://roadmapsh.bsky.social/" target="_blank" class="ml-2 hover:text-white"> <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="Bluesky--Streamline-Simple-Icons" height="24" width="24" class="inline-block h-5 w-5 fill-current"><desc>Bluesky Streamline Icon: https://streamlinehq.com</desc><title>Bluesky</title><path d="M12 10.8c-1.087 -2.114 -4.046 -6.053 -6.798 -7.995C2.566 0.944 1.561 1.266 0.902 1.565 0.139 1.908 0 3.08 0 3.768c0 0.69 0.378 5.65 0.624 6.479 0.815 2.736 3.713 3.66 6.383 3.364 0.136 -0.02 0.275 -0.039 0.415 -0.056 -0.138 0.022 -0.276 0.04 -0.415 0.056 -3.912 0.58 -7.387 2.005 -2.83 7.078 5.013 5.19 6.87 -1.113 7.823 -4.308 0.953 3.195 2.05 9.271 7.733 4.308 4.267 -4.308 1.172 -6.498 -2.74 -7.078a8.741 8.741 0 0 1 -0.415 -0.056c0.14 0.017 0.279 0.036 0.415 0.056 2.67 0.297 5.568 -0.628 6.383 -3.364 0.246 -0.828 0.624 -5.79 0.624 -6.478 0 -0.69 -0.139 -1.861 -0.902 -2.206 -0.659 -0.298 -1.664 -0.62 -4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z" fill="currentColor" stroke-width="1"></path></svg> </a> </p> </div> </div> <div class="max-w-[340px] text-left lg:text-right"> <a href="https://thenewstack.io" target="_blank"> <img src="/images/tns-sm.png" alt="ThewNewStack" class="my-1.5 mr-auto lg:mr-0 lg:ml-auto" width="200" height="24.8" loading="lazy"> </a> <p class="my-4 text-slate-300/60">
+The top DevOps resource for Kubernetes, cloud-native computing, and
+          large-scale development and deployment.
+</p> <div class="text-sm text-gray-400"> <p> <a href="https://thenewstack.io/category/devops?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Footer" target="_blank" class="text-gray-400 hover:text-white">DevOps</a> <span class="mx-1.5">&middot;</span> <a href="https://thenewstack.io/category/kubernetes?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Footer" target="_blank" class="text-gray-400 hover:text-white">Kubernetes</a> <span class="mx-1.5">&middot;</span> <a href="https://thenewstack.io/category/cloud-native?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Footer" target="_blank" class="text-gray-400 hover:text-white">Cloud-Native</a> </p> </div> </div> </div> <astro-island uid="Z2vdUBY" prefix="r25" component-url="/_astro/CookieSettingsButton.C_hL_KlF.js" component-export="CookieSettingsButton" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;CookieSettingsButton&quot;,&quot;value&quot;:true}" await-children><div class="mt-12 flex items-center justify-start"><button class="flex items-center gap-2 rounded-md bg-slate-800/80 px-3 py-1.5 text-sm text-gray-400 transition-colors hover:bg-slate-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie h-4 w-4" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>Cookie Settings</button></div><!--astro:end--></astro-island> </div> </div> </div> <script type="module" src="/_astro/Authenticator.astro_astro_type_script_index_0_lang.tx8aIZm1.js"></script>  <script type="module">class n{constructor(){this.triggerPopup=this.triggerPopup.bind(this),this.onDOMLoaded=this.onDOMLoaded.bind(this),this.handleClosePopup=this.handleClosePopup.bind(this),this.handleKeydown=this.handleKeydown.bind(this)}triggerPopup(o){const e=o?.target?.closest("[data-popup]")?.dataset?.popup||"unknown-popup",t=document.querySelector(`#${e}`);if(!t)return;o.preventDefault(),t.classList.remove("hidden"),t.classList.add("flex");const s=t.querySelector("[autofocus]");s&&s.focus()}handleClosePopup(o){const e=o.target,t=e.closest(".popup-body"),s=e.closest(".popup");!e.closest(".popup-close")&&t||s&&(s.classList.add("hidden"),s.classList.remove("flex"))}handleKeydown(o){if(o.key!=="Escape")return;const e=document.querySelector(".popup:not(.hidden)");e&&(e.classList.add("hidden"),e.classList.remove("flex"))}onDOMLoaded(){document.addEventListener("click",this.triggerPopup),document.addEventListener("click",this.handleClosePopup),document.addEventListener("keydown",this.handleKeydown)}init(){window.addEventListener("DOMContentLoaded",this.onDOMLoaded)}}const d=new n;d.init();</script> <div id="login-popup" tabindex="-1" class="hidden bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-999 h-full items-center justify-center popup"> <div class="relative p-4 w-full max-w-md h-full md:h-auto"> <div class="relative bg-white rounded-lg shadow-sm popup-body"> <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"> <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        clipRule="evenodd"></path>
+</svg> <span class="sr-only">Close popup</span> </button> <div class="p-5"> <h3 class="text-2xl mb-0.5 font-medium">  </h3> <p class="mb-4 text-sm font-normal text-gray-800">  </p>  <div class="mb-7 text-center"> <p class="mb-3 text-2xl leading-5 font-semibold text-slate-900">
+Login or Signup
+</p> <p class="mt-2 text-sm leading-4 text-slate-600">
+You must be logged in to perform this action.
+</p> </div> <astro-island uid="2dqVLe" prefix="r20" component-url="/_astro/AuthenticationForm.DqOTHS09.js" component-export="AuthenticationForm" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;AuthenticationForm&quot;,&quot;value&quot;:true}" await-children><div class="flex w-full flex-col gap-2"><button class="inline-flex h-10 w-full items-center justify-center gap-2 rounded-sm border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-hidden hover:border-gray-400 hover:bg-gray-50 focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><svg class="h-[18px] w-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96"><path fill-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362l-.08-9.127c-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126l-.08 13.526c0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#24292f"></path></svg>Continue with GitHub</button><button class="inline-flex h-10 w-full items-center justify-center gap-2 rounded-sm border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-hidden hover:border-gray-400 hover:bg-gray-50 focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 92" fill="none" class="h-[18px] w-[18px]"><path d="M90 47.1c0-3.1-.3-6.3-.8-9.3H45.9v17.7h24.8c-1 5.7-4.3 10.7-9.2 13.9l14.8 11.5C85 72.8 90 61 90 47.1z" fill="#4280ef"></path><path d="M45.9 91.9c12.4 0 22.8-4.1 30.4-11.1L61.5 69.4c-4.1 2.8-9.4 4.4-15.6 4.4-12 0-22.1-8.1-25.8-18.9L4.9 66.6c7.8 15.5 23.6 25.3 41 25.3z" fill="#34a353"></path><path d="M20.1 54.8c-1.9-5.7-1.9-11.9 0-17.6L4.9 25.4c-6.5 13-6.5 28.3 0 41.2l15.2-11.8z" fill="#f6b704"></path><path d="M45.9 18.3c6.5-.1 12.9 2.4 17.6 6.9L76.6 12C68.3 4.2 57.3 0 45.9.1c-17.4 0-33.2 9.8-41 25.3l15.2 11.8c3.7-10.9 13.8-18.9 25.8-18.9z" fill="#e54335"></path></svg>Continue with Google</button><button class="inline-flex h-10 w-full items-center justify-center gap-2 rounded-sm border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-hidden hover:border-gray-400 focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px] text-blue-700"><g clip-path="url(#clip0_2344_20)"><path d="M0 0V24H24V0H0ZM8 19H5V8H8V19ZM6.5 6.732C5.534 6.732 4.75 5.942 4.75 4.968C4.75 3.994 5.534 3.204 6.5 3.204C7.466 3.204 8.25 3.994 8.25 4.968C8.25 5.942 7.467 6.732 6.5 6.732ZM20 19H17V13.396C17 10.028 13 10.283 13 13.396V19H10V8H13V9.765C14.397 7.179 20 6.988 20 12.241V19Z" fill="currentColor"></path></g><defs><clipPath id="clip0_2344_20"><rect width="24" height="24" rx="2" fill="white"></rect></clipPath></defs></svg>Continue with LinkedIn</button></div><div class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"><div class="h-px w-full bg-slate-200"></div>OR<div class="h-px w-full bg-slate-200"></div></div><form class="w-full"><label for="form:«r20R3»" class="sr-only">Email address</label><input id="form:«r20R3»" type="email" autoComplete="email" required="" class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-xs outline-hidden placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1" placeholder="Email Address" name="email" value=""/><label for="form:«r20R3H1»" class="sr-only">Password</label><input id="form:«r20R3H1»" type="password" autoComplete="current-password" required="" class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-xs outline-hidden placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1" placeholder="Password" name="password" value=""/><p class="mt-2 mb-3 text-sm text-gray-500"><a href="/forgot-password" class="text-blue-800 hover:text-blue-600">Reset your password?</a></p><button type="submit" class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-hidden focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">Continue</button></form><!--astro:end--></astro-island> <div class="mt-3 w-full rounded-md border py-2 text-center text-sm text-slate-600">
+Don't have an account?  <a href="/signup" class="font-medium text-blue-700 hover:text-blue-600 hover:underline">
+Sign up
+</a> </div> <div class="mt-3 text-left text-xs leading-normal text-gray-500">By continuing to use our services, you acknowledge that you have both read and agree to our<!-- --> <a href="/terms" class="font-medium underline underline-offset-2 hover:text-black">Terms of Service</a> <!-- -->and<!-- --> <a href="/privacy" class="font-medium underline underline-offset-2 hover:text-black">Privacy Policy</a>.</div>  </div> </div> </div> </div>  <astro-island uid="bzchJ" component-url="/_astro/Toast.BiwBLk3R.js" component-export="Toaster" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="only" opts="{&quot;name&quot;:&quot;Toaster&quot;,&quot;value&quot;:&quot;react&quot;}"></astro-island> <script>(()=>{var l=(n,t)=>{let i=async()=>{await(await n())()},e=typeof t.value=="object"?t.value:void 0,s={timeout:e==null?void 0:e.timeout};"requestIdleCallback"in window?window.requestIdleCallback(i,s):setTimeout(i,s.timeout||200)};(self.Astro||(self.Astro={})).idle=l;window.dispatchEvent(new Event("astro:idle"));})();</script><astro-island uid="jOB4G" prefix="r14" component-url="/_astro/CommandMenu.ibVI0QXR.js" component-export="CommandMenu" renderer-url="/_astro/client.DWEMtbU6.js" props="{}" ssr client="idle" opts="{&quot;name&quot;:&quot;CommandMenu&quot;,&quot;value&quot;:true}"></astro-island> <astro-island uid="ZaNjW8" prefix="r15" component-url="/_astro/PageProgress.BKq1I4D-.js" component-export="PageProgress" renderer-url="/_astro/client.DWEMtbU6.js" props="{&quot;initialMessage&quot;:[0,&quot;&quot;]}" ssr client="idle" opts="{&quot;name&quot;:&quot;PageProgress&quot;,&quot;value&quot;:true}"></astro-island> <div id="div-gpt-ad-1742391132948-0" class="gam-slot fixed bottom-4 right-4 z-50 h-[160px] w-[350px] cursor-pointer max-md:bottom-0 max-md:right-0 max-md:h-[106px] max-md:w-full"> <script type="module">const t=[];function i(e){const n=window.innerWidth<768?"sm":"lg";e.postMessage(`breakpoint:${n}`,"*")}window.addEventListener("resize",()=>{t.forEach(e=>{i(e)})},{passive:!0});window.addEventListener("message",function(e){if(e.data==="initdfp")t.push(e.source),i(e.source);else if(e.data==="close-ad"){const n=document.getElementById("div-gpt-ad-1742391132948-0");n&&n.remove()}});</script> </div> <script type="module">googletag.cmd.push(function(){if(!googletag.pubads){console.log("googletag.pubads not found");return}googletag.pubads().collapseEmptyDivs(),googletag.pubads().setPrivacySettings({restrictDataProcessing:!0,nonPersonalizedAds:!0}),googletag.display("div-gpt-ad-1742391132948-0")});</script>  <astro-island uid="ZrUQsC" prefix="r16" component-url="/_astro/PageVisit.CiL6WfMT.js" component-export="PageVisit" renderer-url="/_astro/client.DWEMtbU6.js" props="{&quot;resourceId&quot;:[0],&quot;resourceType&quot;:[0]}" ssr client="load" opts="{&quot;name&quot;:&quot;PageVisit&quot;,&quot;value&quot;:true}"></astro-island> </body></html>
